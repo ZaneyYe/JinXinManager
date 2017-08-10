@@ -29,9 +29,14 @@
 <script type="text/javascript">
     $(function () {
         $("#imgtt").datagrid({
-                    title : "图片列表",
                     url : "$!basePath/pic/list.do",
-                    pagination:true,//分页控件
+                    fitColumns : true,
+                    striped : true,
+                    pagination : true,
+                    rownumbers : true,
+                    pageSize : 50,
+                    pageNumber : 1,
+                    pageList : [ 50, 100, 150, 200, 250],
                     border: false,
                     columns:[[
                         {field:"id",title:"序号",width:100},
@@ -41,4 +46,50 @@
                 }
         )
     })
+
+    jQuery('#order_dg').datagrid({
+        url:'$!{basePath}/order/query_order_list.json',
+        fitColumns : true,
+        striped : true,
+        pagination : true,
+        rownumbers : true,
+        pageSize : 50,
+        pageNumber : 1,
+        pageList : [ 50, 100, 150, 200, 250],
+        loadMsg : '数据正在加载中...',
+        singleSelect:true,
+        queryParams : pars,
+        selectOnCheck : false,
+        checkOnSelect : false,
+        columns : [[
+            {field : 'orderCode', title : '<span class="txtcenter">订单编号</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
+//                {field : 'orderCreateTimeStr', title : '<span class="txtcenter">创建时间</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
+            {field : 'houseId', title : '<span class="txtcenter">房源ID</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'houseAreaName', title : '<span class="txtcenter">区域</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'townName', title : '<span class="txtcenter">板块</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'houseAddr', title : '<span class="txtcenter">房源地址</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.15, align: 'right'},
+            {field : 'orderStateName', title : '<span class="txtcenter">订单状态</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.08, align: 'right'},
+            {field : 'mendianName', title : '<span class="txtcenter">所属门店</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'groupName', title : '<span class="txtcenter">所属小组</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'agentName', title : '<span class="txtcenter">所属经纪人</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'agentMobile', title : '<span class="txtcenter">所属经纪人手机</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'commission', title : '<span class="txtcenter">佣金</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right'},
+            {field : 'commissionPercent', title : '<span class="txtcenter">已收比例</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'right',
+                formatter:function(value,row,index) {
+                    return value + "%";
+                }
+            },
+            {field : ' ',title : '<span class="txtcenter">操作</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'center',
+                formatter:function(value,row,index) {
+                    var d = "<a href='$!basePath/order/query_order_detail.do?orderId=" + row.idEntryStr + "' target='ORDER_" + row.idEntryStr + "'>查看详情</a>";
+                    return d;
+                }
+            }
+        ]],
+        onLoadSuccess:function(data){
+            $(".txtcenter").parent().parent().css("text-align","center");
+        }
+    });
+    }
+
 </script>
