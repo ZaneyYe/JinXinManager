@@ -92,4 +92,79 @@
     });
     }
 
+    ##初始化订单状态下拉框
+    function contractStateInit() {
+        jQuery("#orderState").combobox({
+            url:"$!{basePath}/order/get_order_states.json",
+            valueField:'id',
+            textField:'text',
+            method:'get',
+            panelHeight:'auto',
+            multiple:true,
+            editable : false,
+            formatter: function (row) {
+                var opts = $(this).combobox('options');
+                if (0 == row[opts.valueField])
+                    return row[opts.textField];
+                return '<input type="checkbox" class="combobox-checkbox">&nbsp;' + row[opts.textField];
+            },
+            onLoadSuccess: function () {
+                var combobox = jQuery("#orderState");
+                var items = combobox.combobox("getData");
+                var id = -1;
+                if (items.length > 0) {
+                    id = items[0].id;
+                    combobox.combobox("select", id);
+                }
+                houseIdInit();
+//                reQueryData();
+            },
+            onSelect: function (row) {
+                //console.log(row);
+                var opts = $(this).combobox('options');
+                var vals = $(this).combobox('getValues');
+                if (0 != row[opts.valueField]) {
+                    //选中checkbox
+                    var el = opts.finder.getEl(this, row[opts.valueField]);
+                    el.find('input.combobox-checkbox')._propAttr('checked', true);
+                } else {
+                    //如选中不限, 则取消所有checkbox选中, 并选中不限
+                    for (var i = 0; i < vals.length; i++) {
+                        var el = opts.finder.getEl(this, vals[i]);
+                        el.find('input.combobox-checkbox')._propAttr('checked', false);
+                    }
+                    $(this).combobox('setValues', "0");
+                }
+                //重新获取下拉框的值
+                vals = $(this).combobox('getValues');
+                //如点击不限之外的其它选项, 则取消不限的选中, 选中其余的
+                if (vals.length > 0) {
+                    var newvals = new Array();
+                    for (var i = 0; i < vals.length; i++) {
+                        var item = vals[i];
+                        if (item != 0)
+                            newvals.push(item);
+                    }
+                    if (newvals.length > 0)
+                        $(this).combobox('setValues', newvals);
+                }
+            },
+            onUnselect: function (row) {
+                var opts = $(this).combobox('options');
+                if (0 != row[opts.valueField]) {
+                    var el = opts.finder.getEl(this, row[opts.valueField]);
+                    el.find('input.combobox-checkbox')._propAttr('checked', false);
+                }
+                //如果所有框都没有选中, 默认选中不限
+                var selOpts = $(this).combobox("getValue");
+                if (selOpts == undefined) {
+                    $(this).combobox("select", "0");
+                }
+                console.log($(t
+
+                his).combobox('getValues'));
+            }
+        });
+    }
+
 </script>
