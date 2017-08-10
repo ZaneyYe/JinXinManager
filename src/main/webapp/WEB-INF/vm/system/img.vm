@@ -5,8 +5,11 @@
         <h3 class="box-title">图片管理</h3>
     </div>
     <!-- /.box-header -->
-    <div class="box-body">
-        <table id="imgtt" data-options="rownumbers:true,singleSelect:true" class="table table-bordered table-striped">
+
+
+    <div data-options="region:'center',fit:true,split:false,border:false" >
+        <table id="imgtt" style="width:100%"></table>
+    </div>
 ##            <thead></thead>
 ##            <tbody>
 ##            </tbody>
@@ -19,14 +22,26 @@
 ##                <th>CSS grade</th>
 ##            </tr>
 ##            </tfoot>
-        </table>
-    </div>
+
     <!-- /.box-body -->
 </div>
 
 
 <script>
-    $(function () {
+    $(document).ready(function () {
+        $("#imgtt").datagrid({
+                    title : "图片列表",
+                    url : "$!basePath/pic/list.do",
+                    pagination:true,//分页控件
+                    border: false,
+                    columns:[[
+                        {field:"id",title:"序号",width:100},
+                        {field:"type",title:"类型",width:100},
+                        {field:"url",title:"链接",width:300}
+                    ]]
+                }
+        )
+    })
 //        $('#example1').DataTable()
 //        $('#example2').DataTable({
 //            'paging'      : true,
@@ -36,15 +51,4 @@
 //            'info'        : true,
 //            'autoWidth'   : false
 //        })
-        $("#imgtt").datagrid(
-            title:"图片列表",
-            url:"$basePath/pic/list.do",
-            pagination:true,//分页控件
-            columns:[[
-              {field:"id",title:"序号",width:100},
-              {field:"type",title:"类型",width:100},
-              {field:"url",title:"链接",width:300,a lign: right}
-            ]]
-        )
-    })
 </script>
