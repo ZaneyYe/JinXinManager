@@ -26,9 +26,8 @@
     <!-- /.box-body -->
 </div>
 
-
-<script>
-    $(document).ready(function () {
+<script type="text/javascript">
+    $(function () {
         $("#imgtt").datagrid({
                     title : "图片列表",
                     url : "$!basePath/pic/list.do",
@@ -42,13 +41,4 @@
                 }
         )
     })
-//        $('#example1').DataTable()
-//        $('#example2').DataTable({
-//            'paging'      : true,
-//            'lengthChange': false,
-//            'searching'   : false,
-//            'ordering'    : true,
-//            'info'        : true,
-//            'autoWidth'   : false
-//        })
 </script>
