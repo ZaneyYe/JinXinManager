@@ -35,5 +35,9 @@ public class BaseController {
 	}
 
 
+	@RequestMapping("/img_manage.do")
+    public String toImageInfoPage(){
+		return "system/img";
+	}
 
 }

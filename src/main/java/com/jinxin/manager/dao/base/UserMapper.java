@@ -1,4 +1,4 @@
-package com.jinxin.manager.dao;
+package com.jinxin.manager.dao.base;
 
 import com.jinxin.manager.po.User;
 import com.jinxin.manager.po.UserExample;
