@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinxin.manager.dao.PicDao">
+
+    <resultMap id="imgInfoMapper" type="com.jinxin.manager.po.ImgInfo">
+        <result column="is_del" property="valid"></result>
+    </resultMap>
+
+    <select id="queryAllPics" resultType="imgInfoMapper">
+        SELECT * FROM t_img_info
+    </select>
+
+    <select id="countTotalPics" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM t_img_info;
+    </select>
+
+
+</mapper>
