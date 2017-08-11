@@ -1,10 +1,11 @@
 package com.jinxin.manager.service;
 
-import com.jinxin.manager.po.ImgInfo;
+import com.jinxin.manager.vo.ImgInfoVo;
 import com.jinxin.manager.vo.PageInfo;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -18,19 +19,21 @@ public class PicServiceImpl implements PicService {
 //	private PicDao picDao;
 
 	@Override
-	public PageInfo<ImgInfo> queryAllPics() {
-		List<ImgInfo> imgInfos = new ArrayList<>();
-		ImgInfo img1 = new ImgInfo();
-		ImgInfo img2 = new ImgInfo();
+	public PageInfo<List<ImgInfoVo>> queryAllPics() {
+		List<ImgInfoVo> imgInfos = new ArrayList<>();
+		ImgInfoVo img1 = new ImgInfoVo();
+		ImgInfoVo img2 = new ImgInfoVo();
 		img1.setId(1);
 		img1.setType(1);
 		img1.setUrl("http://xxx.xxx");
+		img1.setCreatetime(new Date());
 		img2.setId(2);
 		img2.setType(2);
 		img2.setUrl("http://yyy.yyy");
+		img2.setCreatetime(new Date());
 		imgInfos.add(img1);
 		imgInfos.add(img2);
-		PageInfo<ImgInfo> result = new PageInfo<>();
+		PageInfo<List<ImgInfoVo>> result = new PageInfo<>();
 		result.setTotal(2);
 		result.setRows(imgInfos);
 		return result;

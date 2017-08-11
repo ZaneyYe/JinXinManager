@@ -1,7 +1,5 @@
 package com.jinxin.manager.vo;
 
-import java.util.List;
-
 /**
  * Created by yzy on 2017/08/10 下午 3:07.
  * email: mia5121@163.com
@@ -15,7 +13,7 @@ public class PageInfo<T> {
 	/**
 	 * 当前页的data
 	 */
-	private List<T> rows;
+	private T rows;
 
 	public Integer getTotal() {
 		return total;
@@ -25,13 +23,11 @@ public class PageInfo<T> {
 		this.total = total;
 	}
 
-	public List<T> getRows() {
+	public T getRows() {
 		return rows;
 	}
 
-	public void setRows(List<T> rows) {
+	public void setRows(T rows) {
 		this.rows = rows;
 	}
-
-
 }

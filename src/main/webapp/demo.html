@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<table id="tt"></table>
+</body>
+
+<script src="static/js/easyui/jquery.min.js" type="text/javascript"></script>
+<script src="static/js/easyui/easyloader.js" type="text/javascript"></script>
+<script src="static/js/easyui/jquery.easyui.min.js" type="text/javascript"></script>
+<script src="static/js/easyui/jquery.easyui.mobile.js" type="text/javascript "></script>
+<script type="text/javascript">
+    var user = {total:6,rows:[
+        {no:1,name:'用户1',addr:'山东济南',email:'user1@163.com',birthday:'1/1/1980'},
+        {no:2,name:'用户2',addr:'山东济南',email:'user2@163.com',birthday:'1/1/1980'},
+        {no:3,name:'用户3',addr:'山东济南',email:'user3@163.com',birthday:'1/1/1980'},
+        {no:4,name:'用户4',addr:'山东济南',email:'user4@163.com',birthday:'1/1/1980'},
+        {no:5,name:'用户5',addr:'山东济南',email:'user5@163.com',birthday:'1/1/1980'},
+        {no:6,name:'用户6',addr:'山东济南',email:'user6@163.com',birthday:'1/1/1980'}
+    ]};
+    $(function(){
+        $('#tt').datagrid({
+            title:'Editable DataGrid',
+            iconCls:'icon-edit',
+            width:530,
+            height:250,
+            singleSelect:true,
+            columns:[[
+                {field:'no',title:'编号',width:50,editor:'numberbox'},
+                {field:'name',title:'名称',width:60,editor:'text'},
+                {field:'addr',title:'地址',width:100,editor:'text'},
+                {field:'email',title:'电子邮件',width:100,
+                    editor:{
+                        type:'validatebox',
+                        options:{
+                            validType:'email'
+                        }
+                    }
+                },
+                {field:'birthday',title:'生日',width:80,editor:'datebox'},
+                {field:'action',title:'操作',width:70,align:'center',
+                    formatter:function(value,row,index){//单元格的格式化函数，需要三个参数：value:字段的值; rowData:行的记录数据; rowIndex:行的索引。
+                        if (row.editing){
+                            var s = '<a href="#" onclick="saverow('+index+')">保存</a> ';
+                            var c = '<a href="#" onclick="cancelrow('+index+')">取消</a>';
+                            return s+c;
+                        } else {
+                            var e = '<a href="#" onclick="editrow('+index+')">编辑</a> ';
+                            var d = '<a href="#" onclick="deleterow('+index+')">删除</a>';
+                            return e+d;
+                        }
+                    }
+                }
+            ]],
+            toolbar:[{
+                text:'增加',
+                iconCls:'icon-add',
+                handler:addrow
+            },{
+                text:'保存',
+                iconCls:'icon-save',
+                handler:saveall
+            },{
+                text:'取消',
+                iconCls:'icon-cancel',
+                handler:cancelall
+            },{
+                text:'刷新',
+                iconCls:'icon-reload',
+                handler:reloads
+            }],
+            onBeforeEdit:function(index,row){
+                row.editing = true;
+                $('#tt').datagrid('refreshRow', index);//刷新一行
+                editcount++;
+            },
+            onAfterEdit:function(index,row){
+                row.editing = false;
+                $('#tt').datagrid('refreshRow', index);
+                editcount--;
+            },
+            onCancelEdit:function(index,row){
+                row.editing = false;
+                $('#tt').datagrid('refreshRow', index);
+                editcount--;
+            }
+        }).datagrid('loadData',user).datagrid('acceptChanges');
+    });
+    var editcount = 0;
+    function editrow(index){
+        $('#tt').datagrid('beginEdit', index);//开始对一行进行编辑
+    }
+    function deleterow(index){
+        $.messager.confirm('确认','是否真的删除?',function(r){
+            if (r){
+                $('#tt').datagrid('deleteRow', index);//删除一行
+            }
+        });
+    }
+    function saverow(index){
+        $('#tt').datagrid('endEdit', index);//结束对一行进行编辑
+    }
+    function cancelrow(index){
+        $('#tt').datagrid('cancelEdit', index);//取消对一行进行编辑
+    }
+    function addrow(){
+        if (editcount > 0){
+            $.messager.alert('警告','当前还有'+editcount+'记录正在编辑，不能增加记录。');
+            return;
+        }
+        $('#tt').datagrid('appendRow',{
+            no:'',
+            name:'',
+            addr:'',
+            email:'',
+            birthday:''
+        });
+    }
+    function saveall(){
+        $('#tt').datagrid('acceptChanges');//提交自从被加载以来或最后一次调用acceptChanges以来所有更改的数据
+    }
+    function cancelall(){
+        $('#tt').datagrid('rejectChanges');//回滚自从创建以来或最后一次调用acceptChanges以来所有更改的数据
+    }
+    function reloads(){
+        $('#tt').datagrid('reload');//刷新
+    }
+</script>
+</html>
