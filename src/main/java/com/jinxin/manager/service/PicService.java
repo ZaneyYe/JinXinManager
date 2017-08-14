@@ -12,8 +12,17 @@ import java.util.List;
 public interface PicService {
 
 	/**
-	 *
+	 * 查询所有的图片
 	 * @return
 	 */
 	PageInfo<List<ImgInfoVo>> queryAllPics();
+
+	/**
+	 * 增加图片
+	 *
+	 * @param desc
+	 * @param descPath
+	 */
+	void addPic(String desc, String descPath);
+
 }

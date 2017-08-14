@@ -10,7 +10,7 @@
     <result column="type" jdbcType="INTEGER" property="type" />
     <result column="url" jdbcType="VARCHAR" property="url" />
     <result column="remark" jdbcType="VARCHAR" property="remark" />
-    <result column="is_del" jdbcType="tinyint" property="valid" />
+    <result column="is_del" jdbcType="BIT" property="isDel"/>
     <result column="createtime" jdbcType="TIMESTAMP" property="createtime" />
     <result column="updatetime" jdbcType="TIMESTAMP" property="updatetime" />
   </resultMap>
@@ -144,8 +144,8 @@
     insert into t_img_info (id, type, url, 
       remark, is_del, createtime, 
       updatetime)
-    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR}, 
-      #{remark,jdbcType=VARCHAR}, #{valid,jdbcType=tinyint}, #{createtime,jdbcType=TIMESTAMP}, 
+    values (#{id,jdbcType=INTEGER}, #{type,jdbcType=INTEGER}, #{url,jdbcType=VARCHAR},
+    #{remark,jdbcType=VARCHAR}, #{isDel,jdbcType=BIT}, #{createtime,jdbcType=TIMESTAMP},
       #{updatetime,jdbcType=TIMESTAMP})
   </insert>
   <insert id="insertSelective" parameterType="com.jinxin.manager.po.ImgInfo">
@@ -168,7 +168,7 @@
       <if test="remark != null">
         remark,
       </if>
-      <if test="valid != null">
+      <if test="isDel != null">
         is_del,
       </if>
       <if test="createtime != null">
@@ -189,8 +189,8 @@
       <if test="remark != null">
         #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="valid != null">
-        #{valid,jdbcType=tinyint},
+      <if test="isDel != null">
+        #{isDel,jdbcType=BIT},
       </if>
       <if test="createtime != null">
         #{createtime,jdbcType=TIMESTAMP},
@@ -229,8 +229,8 @@
       <if test="record.remark != null">
         remark = #{record.remark,jdbcType=VARCHAR},
       </if>
-      <if test="record.valid != null">
-        is_del = #{record.valid,jdbcType=tinyint},
+      <if test="record.isDel != null">
+        is_del = #{record.isDel,jdbcType=BIT},
       </if>
       <if test="record.createtime != null">
         createtime = #{record.createtime,jdbcType=TIMESTAMP},
@@ -253,7 +253,7 @@
       type = #{record.type,jdbcType=INTEGER},
       url = #{record.url,jdbcType=VARCHAR},
       remark = #{record.remark,jdbcType=VARCHAR},
-      is_del = #{record.valid,jdbcType=tinyint},
+    is_del = #{record.isDel,jdbcType=BIT},
       createtime = #{record.createtime,jdbcType=TIMESTAMP},
       updatetime = #{record.updatetime,jdbcType=TIMESTAMP}
     <if test="_parameter != null">
@@ -276,8 +276,8 @@
       <if test="remark != null">
         remark = #{remark,jdbcType=VARCHAR},
       </if>
-      <if test="valid != null">
-        is_del = #{valid,jdbcType=tinyint},
+      <if test="isDel != null">
+        is_del = #{isDel,jdbcType=BIT},
       </if>
       <if test="createtime != null">
         createtime = #{createtime,jdbcType=TIMESTAMP},
@@ -297,7 +297,7 @@
     set type = #{type,jdbcType=INTEGER},
       url = #{url,jdbcType=VARCHAR},
       remark = #{remark,jdbcType=VARCHAR},
-      is_del = #{valid,jdbcType=tinyint},
+    is_del = #{isDel,jdbcType=BIT},
       createtime = #{createtime,jdbcType=TIMESTAMP},
       updatetime = #{updatetime,jdbcType=TIMESTAMP}
     where id = #{id,jdbcType=INTEGER}

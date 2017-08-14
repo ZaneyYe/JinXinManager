@@ -2,12 +2,17 @@ package com.jinxin.manager.service;
 
 import com.jinxin.manager.dao.PicDao;
 import com.jinxin.manager.po.ImgInfo;
+import com.jinxin.manager.vo.BussinessException;
 import com.jinxin.manager.vo.ImgInfoVo;
 import com.jinxin.manager.vo.PageInfo;
+import org.apache.commons.lang.StringUtils;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -16,6 +21,8 @@ import java.util.List;
  */
 @Service
 public class PicServiceImpl implements PicService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(PicServiceImpl.class);
 
 	@Autowired
 	private PicDao picDao;
@@ -40,19 +47,32 @@ public class PicServiceImpl implements PicService {
 //		result.setRows(imgInfos);
 
 		PageInfo<List<ImgInfoVo>> result = new PageInfo<>();
+		Integer total = picDao.countTotalPics();
 		List<ImgInfo> imgInfoList = picDao.queryAllPics();
 		List<ImgInfoVo> imgInfoVos = new ArrayList<>();
 		for(ImgInfo imgInfo : imgInfoList){
 			ImgInfoVo imgInfoVo = new ImgInfoVo(imgInfo);
 			imgInfoVos.add(imgInfoVo);
 		}
-		Integer total = picDao.countTotalPics();
 		result.setTotal(total);
 		result.setRows(imgInfoVos);
 		return result;
 	}
 
 
+	@Override
+	public void addPic(String desc, String descPath) {
+		if (StringUtils.isBlank(desc)) {
+			throw new BussinessException("图片描述不能为空");
+		}
+		ImgInfo imgInfo = new ImgInfo();
+		imgInfo.setType(2);
+		imgInfo.setRemark(desc);
+		imgInfo.setUrl(descPath);
+		imgInfo.setCreatetime(new Date());
+		picDao.insertSelective(imgInfo);
+		LOGGER.info("保存图片成功,{}...", descPath);
+	}
 
 
 }

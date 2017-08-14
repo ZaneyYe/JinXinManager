@@ -130,7 +130,7 @@
                 3，XMLMAPPER：会生成Mapper接口，接口完全依赖XML；
             注意，如果context是MyBatis3Simple：只支持ANNOTATEDMAPPER和XMLMAPPER
         -->
-        <javaClientGenerator targetPackage="com.jinxin.manager.dao" type="XMLMAPPER" targetProject="src/main/java">
+        <javaClientGenerator targetPackage="com.jinxin.manager.dao.base" type="XMLMAPPER" targetProject="src/main/java">
             <!-- 在targetPackage的基础上，根据数据库的schema再生成一层package，最终生成的类放在这个package下，默认为false -->
             <property name="enableSubPackages" value="true"/>
 
@@ -183,7 +183,7 @@
             <property name="immutable" value="false"/>
             <property name="modelOnly" value="false"/>
             <generatedKey column="id" sqlStatement="Mysql" />
-            <columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />
+            <!--<columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />-->
         </table>
 
         <!--<table tableName="t_manager" domainObjectName="User" >-->

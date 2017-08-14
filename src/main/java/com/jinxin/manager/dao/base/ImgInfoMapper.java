@@ -2,9 +2,9 @@ package com.jinxin.manager.dao.base;
 
 import com.jinxin.manager.po.ImgInfo;
 import com.jinxin.manager.po.ImgInfoExample;
-import org.apache.ibatis.annotations.Param;
-
 import java.util.List;
+
+import org.apache.ibatis.annotations.Param;
 
 public interface ImgInfoMapper {
     /**
