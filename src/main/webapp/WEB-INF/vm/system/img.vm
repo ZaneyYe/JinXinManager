@@ -21,30 +21,28 @@
                         上传图片
                     </h4>
                 </div>
-                <div class="modal-body">
-                    <form role="form" id="uploadForm" action="/pic/uploadPic.do" method="post"
-                          enctype="multipart/form-data" target="ajaxUpload">
+                <iframe name="ajaxUpload" style="display: none"></iframe>
+                <form id="uploadForm" action="/pic/uploadPic.do" method="post"
+                      enctype="multipart/form-data" target="ajaxUpload">
+                    <div class="modal-body">
                         <div class="form-group">
                             <label for="name">文件描述</label>
-                            <input type="text" class="form-control" id="desc" placeholder="请输入名称">
+                            <input type="text" class="form-control" id="desc"
+                                   name="desc" placeholder="请输入名称">
                         </div>
-                    ##                        <div class="form-group">
-                    ##                            <label for="name">图片类型</label>
-                    ##                            <input type="text" class="form-control" id="desc" placeholder="请输入名称">
-                    ##                        </div>
                         <div class="form-group">
                             <label for="inputfile">文件输入</label>
-                            <input type="file" id="upFile">
+                            <input type="file" id="upFile" name="upFile"/>
                         </div>
-                    </form>
-                ##                    <iframe name="ajaxUpload" onload="upOnload()" style="display: none"></iframe>
-                </div>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="button" class="btn btn-primary" id="submit">提交
-                    </button>
-                </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                    ##                    <button type="submit" class="btn btn-primary" id="submit">提交
+                    ##                    </button>
+                        <input type="submit" class="btn btn-primary" value="提交"/>
+                    </div>
+                </form>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
@@ -112,6 +110,10 @@
         }
     }]
 
+    function upOnload() {
+        $("#imgtt").datagrid("reload");
+    }
+
     function validParams(){
         if($("#desc").val().length == 0){
             alert("请对图片进行描述");
@@ -119,14 +121,11 @@
         }
     }
 
-    $("#submit").click(function(){
-        validParams();
-        $("#uploadForm").submit();
-    })
+    //    $("#submit").click(function(){
+    //        validParams();
+    //        $("#uploadForm").submit();
+    //    })
 
-    function upOnload() {
-        $("#imgtt").datagrid("reload");
-    }
 
 </script>
 ##    jQuery('#order_dg').datagrid({

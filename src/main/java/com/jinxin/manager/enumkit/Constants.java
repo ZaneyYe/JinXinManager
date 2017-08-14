@@ -8,5 +8,5 @@ public interface Constants {
 
 	String uploadBasePath = "192.168.43.3:80/var/www/html/image/";
 
-
+	String localBasePath = "";
 }
