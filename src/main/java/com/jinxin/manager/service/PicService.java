@@ -2,6 +2,7 @@ package com.jinxin.manager.service;
 
 import com.jinxin.manager.vo.ImgInfoVo;
 import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
 
 import java.util.List;
 
@@ -15,7 +16,7 @@ public interface PicService {
 	 * 查询所有的图片
 	 * @return
 	 */
-	PageInfo<List<ImgInfoVo>> queryAllPics();
+	PageInfo<List<ImgInfoVo>> queryAllPics(RequestPage page);
 
 	/**
 	 * 增加图片

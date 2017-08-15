@@ -5,6 +5,7 @@ import com.jinxin.manager.po.ImgInfo;
 import com.jinxin.manager.vo.BussinessException;
 import com.jinxin.manager.vo.ImgInfoVo;
 import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -28,27 +29,12 @@ public class PicServiceImpl implements PicService {
 	private PicDao picDao;
 
 	@Override
-	public PageInfo<List<ImgInfoVo>> queryAllPics() {
-//		List<ImgInfoVo> imgInfos = new ArrayList<>();
-//		ImgInfoVo img1 = new ImgInfoVo();
-//		ImgInfoVo img2 = new ImgInfoVo();
-//		img1.setId(1);
-//		img1.setType(1);
-//		img1.setUrl("http://xxx.xxx");
-//		img1.setCreatetime(new Date());
-//		img2.setId(2);
-//		img2.setType(2);
-//		img2.setUrl("http://yyy.yyy");
-//		img2.setCreatetime(new Date());
-//		imgInfos.add(img1);
-//		imgInfos.add(img2);
-//		PageInfo<List<ImgInfoVo>> result = new PageInfo<>();
-//		result.setTotal(2);
-//		result.setRows(imgInfos);
-
+	public PageInfo<List<ImgInfoVo>> queryAllPics(RequestPage page) {
 		PageInfo<List<ImgInfoVo>> result = new PageInfo<>();
 		Integer total = picDao.countTotalPics();
-		List<ImgInfo> imgInfoList = picDao.queryAllPics();
+		long start = page.getStart();
+		long limit = page.getRows();
+		List<ImgInfo> imgInfoList = picDao.queryAllPics(start, limit);
 		List<ImgInfoVo> imgInfoVos = new ArrayList<>();
 		for(ImgInfo imgInfo : imgInfoList){
 			ImgInfoVo imgInfoVo = new ImgInfoVo(imgInfo);
