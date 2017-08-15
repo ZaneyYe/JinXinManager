@@ -21,8 +21,9 @@
                         上传图片
                     </h4>
                 </div>
-            ##                <iframe name="ajaxUpload" style="display: none"></iframe>
-                <form id="uploadForm">
+                <iframe name="ajaxUpload" onload="upOnload()" style="display: none"></iframe>
+                <form id="uploadForm" action="/pic/uploadPic.do" method="post"
+                      enctype="multipart/form-data" target="ajaxUpload">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">文件描述</label>
@@ -34,14 +35,14 @@
                             <input type="file" id="upFile" name="upFile"/>
                         </div>
                     </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-default" data-dismiss="modal">关闭
+                        </button>
+                    ##                    <button type="submit" class="btn btn-primary" id="submit">提交
+                    ##                    </button>
+                        <input type="submit" class="btn btn-primary" value="提交"/>
+                    </div>
                 </form>
-                <div class="modal-footer">
-                    <button type="button" class="btn btn-default" data-dismiss="modal">关闭
-                    </button>
-                    <button type="submit" class="btn btn-primary" id="subBtn">提交
-                    </button>
-                ##                    <input type="submit" class="btn btn-primary" value="提交"/>
-                </div>
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
@@ -91,11 +92,13 @@
         text:'添加图片',
         iconCls:'icon-add',
         handler:function(){
+            $("#uploadForm").form("reset");
             $("#uploadFileWin").modal('show');
         }
     }]
 
     function upOnload() {
+        $("#uploadFileWin").modal('hide');
         $("#imgtt").datagrid("reload");
     }
 
@@ -106,31 +109,26 @@
         }
     }
 
-    $("#subBtn").click(function () {
-        validParams();
-        var data = new FormData($("uploadForm"))[0];
-        $.ajax({
-            url: "/pic/uploadPic.do",
-            type: "POST",
-            data: data,
-            dataType: "JSON",
-            contentType: false,
-            proccessData: false,
-            success: function (data) {
-                if (data.result != null) {
-                    $("#imgtt").datagrid("reload");
-                }
-            },
-            error: function (data) {
-                alert("上传失败");
-            }
-        })
-    })
-
-
-
-
-
+    //    $("#subBtn").click(function () {
+    //        validParams();
+    //        var data = new FormData($("uploadForm"))[0];
+    //        $.ajax({
+    //            url: "/pic/uploadPic.do",
+    //            type: "POST",
+    //            data: data,
+    //            dataType: "JSON",
+    //            contentType: false,
+    //            proccessData: false,
+    //            success: function (data) {
+    //                if (data.result != null) {
+    //                    $("#imgtt").datagrid("reload");
+    //                }
+    //            },
+    //            error: function (data) {
+    //                alert("上传失败");
+    //            }
+    //        })
+    //    })
 
 </script>
 ##    jQuery('#order_dg').datagrid({

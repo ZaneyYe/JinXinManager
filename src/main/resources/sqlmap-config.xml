@@ -14,6 +14,8 @@
 		<setting name="defaultExecutorType" value="REUSE"/>
 		<setting name="defaultStatementTimeout" value="25000"/>
 		<setting name="jdbcTypeForNull" value="NULL"/>
+		<!-- 打印查询语句 -->
+		<setting name="logImpl" value="STDOUT_LOGGING"/>
 	</settings>
 
 </configuration>
