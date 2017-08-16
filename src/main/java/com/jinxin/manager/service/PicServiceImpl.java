@@ -11,6 +11,7 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.ArrayList;
 import java.util.Date;
@@ -47,6 +48,7 @@ public class PicServiceImpl implements PicService {
 
 
 	@Override
+	@Transactional
 	public void addPic(String desc, String descPath) {
 		if (StringUtils.isBlank(desc)) {
 			throw new BussinessException("图片描述不能为空");
@@ -56,8 +58,21 @@ public class PicServiceImpl implements PicService {
 		imgInfo.setRemark(desc);
 		imgInfo.setUrl(descPath);
 		imgInfo.setCreatetime(new Date());
+		imgInfo.setUpdatetime(new Date());
 		picDao.insertSelective(imgInfo);
 		LOGGER.info("保存图片成功,{}...", descPath);
+	}
+
+	@Override
+	public void delPic(Integer picId) {
+		if (null == picId) {
+			throw new BussinessException("删除图片,图片id为空");
+		}
+		ImgInfo imgInfo = new ImgInfo();
+		imgInfo.setId(picId);
+		imgInfo.setIsDel(false); //1 为有效，0 为删除
+		picDao.updateByPrimaryKeySelective(imgInfo);
+		LOGGER.info("删除图片成功,id::{}...", picId);
 	}
 
 

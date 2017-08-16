@@ -7,6 +7,7 @@
 
     <select id="queryAllPics" resultMap="com.jinxin.manager.dao.base.ImgInfoMapper.BaseResultMap">
         SELECT * FROM t_img_info
+        WHERE is_del = 1
         <if test="null != start and null != limit">
             limit #{start},#{limit}
         </if>

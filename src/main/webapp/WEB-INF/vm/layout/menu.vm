@@ -9,7 +9,7 @@
               </span>
         </a>
         <ul class="treeview-menu">
-            <li><a href="$basePath/img_manage.do">图片管理</a></li>
+            <li><a href="$!basePath/img_manage.do">图片管理</a></li>
             <li><a href="#">信息管理</a></li>
         </ul>
     </li>

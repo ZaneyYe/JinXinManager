@@ -1,10 +1,12 @@
 package com.jinxin.manager.controller;
 
 import com.jinxin.manager.enumkit.Constants;
+import com.jinxin.manager.enumkit.StateInfo;
 import com.jinxin.manager.service.PicService;
 import com.jinxin.manager.vo.ImgInfoVo;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
+import com.jinxin.manager.vo.ResponseEntity;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.util.FileCopyUtils;
@@ -73,6 +75,17 @@ public class PicController extends BaseController{
 			picService.addPic(desc, upShowPath);
 		}
 		return;
+	}
+
+
+	@RequestMapping(value = "/delPic.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<StateInfo> delPic(HttpServletRequest request, Integer picId) {
+		ResponseEntity<StateInfo> entity = new ResponseEntity<>();
+		LOGGER.info("picId....{}", picId);
+		picService.delPic(picId);
+		entity.setResult(StateInfo.SUCCESS);
+		return entity;
 	}
 
 

@@ -23,7 +23,7 @@
                 </div>
                 <iframe name="ajaxUpload" onload="upOnload()" style="display: none"></iframe>
                 <form id="uploadForm" action="/pic/uploadPic.do" method="post"
-                      enctype="multipart/form-data" target="ajaxUpload">
+                      enctype="multipart/form-data" onsubmit="checkParams(this)" target="ajaxUpload">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">文件描述</label>
@@ -79,7 +79,7 @@
                         {field : "createTimeStr",title : '<span class="txtcenter">上传时间</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
                         {field : ' ',title : '<span class="txtcenter">操作</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'center',
                                     formatter:function(value,row,index) {
-                                        var d = "<button class='txtcenter'>删除</button>";
+                                        var d = "<button class='txtcenter' id='delBtn' onclick='toDelPic(" + row.id + ")'>删除</button>";
                                         return d;
                                     }
                         }
@@ -87,6 +87,11 @@
                 }
             )
     })
+
+    $.extend($.messager.defaults, {
+        ok: "确定",
+        cancel: "取消"
+    });
 
     var toolbar = [{
         text:'添加图片',
@@ -102,12 +107,43 @@
         $("#imgtt").datagrid("reload");
     }
 
-    function validParams(){
-        if($("#desc").val().length == 0){
-            alert("请对图片进行描述");
-            return;
+    //校验表单
+    function checkParams(form) {
+        if (form.desc.value == "") {
+            $.messager.alert("警告", "请对图片进行描述");
+            return false;
+        }
+        if (form.upFile.value == "") {
+            $.messager.alert("警告", "请选择一个图片");
+            return false;
         }
     }
+
+    function toDelPic(picId) {
+        var id = picId;
+        $.messager.confirm("确认", "您确认删除这张图片吗", function (rs) {
+            if (rs) {
+                $.ajax({
+                    url: "$!basePath/pic/delPic.do",
+                    type: "POST",
+                    data: {"picId": picId},
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.code == 1) {
+                            $("#imgtt").datagrid("reload");
+                        } else {
+                            $.messager.alert("警告", "删除失败");
+                        }
+                    },
+                    error: function (e) {
+                        $.messager.alert("警告", "删除失败");
+                    }
+                })
+            }
+        })
+    }
+
+
 
     //    $("#subBtn").click(function () {
     //        validParams();

@@ -26,4 +26,10 @@ public interface PicService {
 	 */
 	void addPic(String desc, String descPath);
 
+	/**
+	 * 删除图片
+	 *
+	 * @param picId
+	 */
+	void delPic(Integer picId);
 }
