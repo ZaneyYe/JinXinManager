@@ -68,6 +68,7 @@
                 classpath:spring/spring-context.xml,classpath:spring/spring-mvc.xml
             </param-value>
         </init-param>
+        <!-- web容器启动时候就调用servlet的init方法初始化 -->
         <load-on-startup>1</load-on-startup>
         <async-supported>true</async-supported>
     </servlet>
