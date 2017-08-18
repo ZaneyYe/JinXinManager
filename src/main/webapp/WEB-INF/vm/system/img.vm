@@ -71,6 +71,15 @@
                     columns:[[
                         {field : 'id', title : '<span class="txtcenter">图片编号</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
                         {field : "type",title : '<span class="txtcenter">图片类型</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
+                        {
+                            field: "remark",
+                            title: '<span class="txtcenter">图片描述</span>',
+                            resizable: true,
+                            hidden: false,
+                            sortable: false,
+                            width: $(this).width() * 0.1,
+                            align: 'left'
+                        },
                         {field : "url",title : '<span class="txtcenter">图片链接</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left',
                             formatter : function (value,row,index) {
                                 return "<a href='"+value+"'>"+value+"</a>";

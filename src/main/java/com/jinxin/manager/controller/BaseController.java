@@ -40,4 +40,9 @@ public class BaseController {
 		return "system/img";
 	}
 
+	@RequestMapping("/toManager.do")
+	public String toManager() {
+		return "system/manager";
+	}
+
 }

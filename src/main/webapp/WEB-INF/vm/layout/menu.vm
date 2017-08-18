@@ -14,5 +14,5 @@
         </ul>
     </li>
     <li><a href="#"><i class="fa fa-link"></i> <span>销售统计</span></a></li>
-    <li><a href="#"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
+    <li><a href="$!basePath/toManager.do"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
 </ul>
