@@ -6,7 +6,10 @@ package com.jinxin.manager.enumkit;
  */
 public interface Constants {
 
-	String uploadBasePath = "192.168.43.3:80/var/www/html/image/";
+	String uploadBasePath = "http://192.168.43.3:80/var/www/html/image/";
 
-	String localBasePath = "";
+	String localShowPath = "http://localhost/";
+
+	String localUploadPath = "E:\\JinXin\\pics\\";
+
 }

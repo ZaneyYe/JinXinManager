@@ -2,6 +2,7 @@ package com.jinxin.manager.dao;
 
 import com.jinxin.manager.dao.base.ImgInfoMapper;
 import com.jinxin.manager.po.ImgInfo;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 
@@ -11,7 +12,7 @@ import java.util.List;
  */
 public interface PicDao extends ImgInfoMapper {
 
-	List<ImgInfo> queryAllPics();
+	List<ImgInfo> queryAllPics(@Param("start") long start, @Param("limit") long limit);
 
 	Integer countTotalPics();
 

@@ -21,9 +21,9 @@
                         上传图片
                     </h4>
                 </div>
-                <iframe name="ajaxUpload" style="display: none"></iframe>
+                <iframe name="ajaxUpload" onload="upOnload()" style="display: none"></iframe>
                 <form id="uploadForm" action="/pic/uploadPic.do" method="post"
-                      enctype="multipart/form-data" target="ajaxUpload">
+                      enctype="multipart/form-data" onsubmit="checkParams(this)" target="ajaxUpload">
                     <div class="modal-body">
                         <div class="form-group">
                             <label for="name">文件描述</label>
@@ -46,20 +46,6 @@
             </div><!-- /.modal-content -->
         </div><!-- /.modal -->
     </div>
-##            <thead></thead>
-##            <tbody>
-##            </tbody>
-##            <tfoot>
-##            <tr>
-##                <th>Rendering engine</th>
-##                <th>Browser</th>
-##                <th>Platform(s)</th>
-##                <th>Engine version</th>
-##                <th>CSS grade</th>
-##            </tr>
-##            </tfoot>
-
-    <!-- /.box-body -->
 </div>
 
 <script src="/static/js/easyui/jquery.min.js" type="text/javascript"></script>
@@ -85,6 +71,15 @@
                     columns:[[
                         {field : 'id', title : '<span class="txtcenter">图片编号</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
                         {field : "type",title : '<span class="txtcenter">图片类型</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
+                        {
+                            field: "remark",
+                            title: '<span class="txtcenter">图片描述</span>',
+                            resizable: true,
+                            hidden: false,
+                            sortable: false,
+                            width: $(this).width() * 0.1,
+                            align: 'left'
+                        },
                         {field : "url",title : '<span class="txtcenter">图片链接</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left',
                             formatter : function (value,row,index) {
                                 return "<a href='"+value+"'>"+value+"</a>";
@@ -93,7 +88,7 @@
                         {field : "createTimeStr",title : '<span class="txtcenter">上传时间</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
                         {field : ' ',title : '<span class="txtcenter">操作</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.05, align: 'center',
                                     formatter:function(value,row,index) {
-                                        var d = "<button class='txtcenter'>删除</button>";
+                                        var d = "<button class='txtcenter' id='delBtn' onclick='toDelPic(" + row.id + ")'>删除</button>";
                                         return d;
                                     }
                         }
@@ -102,30 +97,83 @@
             )
     })
 
+    $.extend($.messager.defaults, {
+        ok: "确定",
+        cancel: "取消"
+    });
+
     var toolbar = [{
         text:'添加图片',
         iconCls:'icon-add',
         handler:function(){
+            $("#uploadForm").form("reset");
             $("#uploadFileWin").modal('show');
         }
     }]
 
     function upOnload() {
+        $("#uploadFileWin").modal('hide');
         $("#imgtt").datagrid("reload");
     }
 
-    function validParams(){
-        if($("#desc").val().length == 0){
-            alert("请对图片进行描述");
-            return;
+    //校验表单
+    function checkParams(form) {
+        if (form.desc.value == "") {
+            $.messager.alert("警告", "请对图片进行描述");
+            return false;
+        }
+        if (form.upFile.value == "") {
+            $.messager.alert("警告", "请选择一个图片");
+            return false;
         }
     }
 
-    //    $("#submit").click(function(){
-    //        validParams();
-    //        $("#uploadForm").submit();
-    //    })
+    function toDelPic(picId) {
+        var id = picId;
+        $.messager.confirm("确认", "您确认删除这张图片吗", function (rs) {
+            if (rs) {
+                $.ajax({
+                    url: "$!basePath/pic/delPic.do",
+                    type: "POST",
+                    data: {"picId": picId},
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.code == 1) {
+                            $("#imgtt").datagrid("reload");
+                        } else {
+                            $.messager.alert("警告", "删除失败");
+                        }
+                    },
+                    error: function (e) {
+                        $.messager.alert("警告", "删除失败");
+                    }
+                })
+            }
+        })
+    }
 
+
+
+    //    $("#subBtn").click(function () {
+    //        validParams();
+    //        var data = new FormData($("uploadForm"))[0];
+    //        $.ajax({
+    //            url: "/pic/uploadPic.do",
+    //            type: "POST",
+    //            data: data,
+    //            dataType: "JSON",
+    //            contentType: false,
+    //            proccessData: false,
+    //            success: function (data) {
+    //                if (data.result != null) {
+    //                    $("#imgtt").datagrid("reload");
+    //                }
+    //            },
+    //            error: function (data) {
+    //                alert("上传失败");
+    //            }
+    //        })
+    //    })
 
 </script>
 ##    jQuery('#order_dg').datagrid({
