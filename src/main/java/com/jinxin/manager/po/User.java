@@ -28,7 +28,7 @@ public class User {
      *
      * @mbg.generated
      */
-    private Short sex;
+    private Integer sex;
 
     /**
      *
@@ -131,7 +131,7 @@ public class User {
      *
      * @mbg.generated
      */
-    public Short getSex() {
+    public Integer getSex() {
         return sex;
     }
 
@@ -143,7 +143,7 @@ public class User {
      *
      * @mbg.generated
      */
-    public void setSex(Short sex) {
+    public void setSex(Integer sex) {
         this.sex = sex;
     }
 

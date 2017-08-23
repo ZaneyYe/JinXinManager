@@ -335,53 +335,53 @@ public class UserExample {
             return (Criteria) this;
         }
 
-        public Criteria andSexEqualTo(Short value) {
-            addCriterion("sex =", value, "sex");
+		public Criteria andSexEqualTo(Integer value) {
+			addCriterion("sex =", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotEqualTo(Short value) {
-            addCriterion("sex <>", value, "sex");
+		public Criteria andSexNotEqualTo(Integer value) {
+			addCriterion("sex <>", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThan(Short value) {
-            addCriterion("sex >", value, "sex");
+		public Criteria andSexGreaterThan(Integer value) {
+			addCriterion("sex >", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexGreaterThanOrEqualTo(Short value) {
-            addCriterion("sex >=", value, "sex");
+		public Criteria andSexGreaterThanOrEqualTo(Integer value) {
+			addCriterion("sex >=", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexLessThan(Short value) {
-            addCriterion("sex <", value, "sex");
+		public Criteria andSexLessThan(Integer value) {
+			addCriterion("sex <", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexLessThanOrEqualTo(Short value) {
-            addCriterion("sex <=", value, "sex");
+		public Criteria andSexLessThanOrEqualTo(Integer value) {
+			addCriterion("sex <=", value, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexIn(List<Short> values) {
-            addCriterion("sex in", values, "sex");
+		public Criteria andSexIn(List<Integer> values) {
+			addCriterion("sex in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotIn(List<Short> values) {
-            addCriterion("sex not in", values, "sex");
+		public Criteria andSexNotIn(List<Integer> values) {
+			addCriterion("sex not in", values, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexBetween(Short value1, Short value2) {
-            addCriterion("sex between", value1, value2, "sex");
+		public Criteria andSexBetween(Integer value1, Integer value2) {
+			addCriterion("sex between", value1, value2, "sex");
             return (Criteria) this;
         }
 
-        public Criteria andSexNotBetween(Short value1, Short value2) {
-            addCriterion("sex not between", value1, value2, "sex");
+		public Criteria andSexNotBetween(Integer value1, Integer value2) {
+			addCriterion("sex not between", value1, value2, "sex");
             return (Criteria) this;
         }
 

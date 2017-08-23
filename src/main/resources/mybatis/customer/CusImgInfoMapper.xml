@@ -2,9 +2,6 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.jinxin.manager.dao.PicDao">
 
-    <resultMap id="imgInfoMapper" type="" extends="com.jinxin.manager.dao.base.ImgInfoMapper.BaseResultMap">
-    </resultMap>
-
     <select id="queryAllPics" resultMap="com.jinxin.manager.dao.base.ImgInfoMapper.BaseResultMap">
         SELECT * FROM t_img_info
         WHERE is_del = 1

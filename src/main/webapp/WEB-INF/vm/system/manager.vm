@@ -53,7 +53,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
                         </button>
-                        <button type="submit" class="btn btn-primary" id="subBtn">提交
+                        <button type="button" class="btn btn-primary" id="subBtn">提交
                         </button>
                     ##                        <input type="submit" class="btn btn-primary" value="提交"/>
                     </div>
@@ -189,6 +189,12 @@
         var sex = 1;
         var phone = $("#phone").val();
         var password = $("#password").val();
+        var data = {
+            name: name,
+            sex: sex,
+            phone: phone,
+            password: password
+        }
         $.ajax({
             url: "/user/addUser.do",
             type: "POST",
