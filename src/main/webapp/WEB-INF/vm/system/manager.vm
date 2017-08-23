@@ -167,12 +167,41 @@
     function validParam() {
         if ($("#name").val() == "") {
             $.messager.alert("警告", "用户名不能为空");
+            return false;
         }
+        if ($(":input[name='sex']").val() == "") {
+            $.messager.alert("警告", "请选择性别");
+        }
+        if ($("#phone").val() == "") {
+            $.messager.alert("警告", "手机号不能为空");
+        }
+        if ($("#password").val() == "") {
+            $.messager.alert("警告", "密码不能为空");
+        }
+        if (/^$/.test($("#repassword"))) {
 
+        }
     }
 
     //提交用户资料
     $("#subBtn").click(function () {
-        validParam();
+        var name = $("#name").val();
+        var sex = 1;
+        var phone = $("#phone").val();
+        var password = $("#password").val();
+        $.ajax({
+            url: "/user/addUser.do",
+            type: "POST",
+            data: data,
+            dataType: 'json',
+            cache: false,
+            success: function (data) {
+                if (data.code == 1) {
+                    alert("ok");
+                }
+            }
+        });
     })
+
+
 </script>
