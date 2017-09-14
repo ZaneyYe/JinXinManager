@@ -337,52 +337,52 @@ public class UserExample {
 
 		public Criteria andSexEqualTo(Integer value) {
 			addCriterion("sex =", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexNotEqualTo(Integer value) {
 			addCriterion("sex <>", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexGreaterThan(Integer value) {
 			addCriterion("sex >", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexGreaterThanOrEqualTo(Integer value) {
 			addCriterion("sex >=", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexLessThan(Integer value) {
 			addCriterion("sex <", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexLessThanOrEqualTo(Integer value) {
 			addCriterion("sex <=", value, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexIn(List<Integer> values) {
 			addCriterion("sex in", values, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexNotIn(List<Integer> values) {
 			addCriterion("sex not in", values, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexBetween(Integer value1, Integer value2) {
 			addCriterion("sex between", value1, value2, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
 		public Criteria andSexNotBetween(Integer value1, Integer value2) {
 			addCriterion("sex not between", value1, value2, "sex");
-            return (Criteria) this;
+			return (Criteria) this;
         }
 
         public Criteria andPhoneIsNull() {

@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinxin.manager.dao.UserDao">
+
+    <insert id="addUser" parameterType="com.jinxin.manager.po.User" useGeneratedKeys="true">
+        INSERT INTO t_manager(name,sex,phone,password,salt,createtime,updatetime)
+        VALUES (#{name},#{sex},#{phone},#{password},#{salt},#{createtime},#{updatetime})
+    </insert>
+
+
+</mapper>

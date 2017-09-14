@@ -186,7 +186,7 @@
     //提交用户资料
     $("#subBtn").click(function () {
         var name = $("#name").val();
-        var sex = 1;
+        var sex = $(":input[name='sex']:checked").val();
         var phone = $("#phone").val();
         var password = $("#password").val();
         var data = {
@@ -203,8 +203,13 @@
             cache: false,
             success: function (data) {
                 if (data.code == 1) {
-                    alert("ok");
+                    $("#addUserWin").modal('hide');
+                } else {
+                    $.messager.alert("警告", "添加用户失败");
                 }
+            },
+            error: function (e) {
+                $.messager.alert("警告", "添加用户失败");
             }
         });
     })
