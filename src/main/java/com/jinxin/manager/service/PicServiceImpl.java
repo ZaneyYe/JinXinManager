@@ -48,7 +48,7 @@ public class PicServiceImpl implements PicService {
 
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = {})
 	public void addPic(String desc, String descPath) {
 		if (StringUtils.isBlank(desc)) {
 			throw new BussinessException("图片描述不能为空");

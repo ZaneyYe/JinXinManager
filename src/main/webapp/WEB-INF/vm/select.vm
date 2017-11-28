@@ -1,0 +1,118 @@
+#set($layout="layout/job-default.vm")
+<div class="up-job-select">
+    <div class="top-bar">
+        <p class="job-title2">招聘职位</p>
+        <div class="job-select" id="job-type">
+            <span class="desc1">职位类别</span>
+            <p class="desc2" data-id="dev">全部</p>
+            <img src="${rc.contextPath}/resources/images/UPJob/down-icon.svg" class="down-icon"/>
+        </div>
+    </div>
+    <div class="job-container">
+        <ul class="job-item">
+            #foreach($applicationName in $applicationNameList)
+                <li class="job-item-li"
+                    onclick="window.location.href='${rc.contextPath}/UPJob/QBDetail?id=$applicationName.id'">
+                    <a data-id="$applicationName.id">
+                        <span>$applicationName.name（$applicationName.address）</span>
+                        <img src="${rc.contextPath}/resources/images/UPJob/right-icon.svg" class="down-icon"/>
+                    </a>
+                </li>
+            #end
+        </ul>
+    </div>
+</div>
+<div class="modal-overlay" style="display:none;"></div>
+<div class="job-type-list job-type-list2" style="display:none;">
+    <div class="cancel-div">
+        <img src="${rc.contextPath}/resources/images/UPJob/ic_clear.svg" class="cancel"/>
+    </div>
+    <ul>
+        <li class="job-type-item active" data-id="">
+            全部
+            <img src="${rc.contextPath}/resources/images/UPJob/ic_done.svg" class="down-icon" style="display: block;"/>
+        </li>
+        #foreach($category in $categoryList)
+            <li class="job-type-item" data-id="$category">
+                $category
+                <img src="${rc.contextPath}/resources/images/UPJob/ic_done.svg" class="down-icon"/>
+            </li>
+        #end
+    </ul>
+</div>
+<script type="text/javascript">
+    $(function () {
+        var jobTypeId = $(".job-type-list2 .job-type-item.active").attr("data-id");
+        var content = $(".job-item");
+        //弹出职位类别
+        $("#job-type").click(function () {
+            //背景阴影
+            $(".modal-overlay").css("display", "block");
+            //div显示
+            $(".job-type-list2").css("display", "block");
+            $(".up-job-select").css("position", "fixed");
+        });
+        //隐藏职位类别
+        $(".cancel").click(function () {
+            $(".modal-overlay").css("display", "none");
+            $(".job-type-list").css("display", "none");
+            $(".up-job-select").css("position", "relative");
+        });
+        $(".modal-overlay").click(function () {
+            $(".modal-overlay").css("display", "none");
+            $(".job-type-list").css("display", "none");
+            $(".up-job-select").css("position", "relative");
+        });
+        //改变选中职位
+        $(".job-type-list2 .job-type-item").click(function () {
+            $('.job-type-list2 .job-type-item.active img').css("display", "none");
+            $('.job-type-list2 .job-type-item.active').removeClass("active");
+            $(this).addClass("active");
+            $('.job-type-list2 .job-type-item.active img').css("display", "block");
+            $(".modal-overlay").css("display", "none");
+            $(".job-type-list").css("display", "none");
+            $(".up-job-select").css("position", "relative");
+            $("#job-type .desc2").text($(".job-type-list2 .job-type-item.active").text());
+            jobTypeId = $(".job-type-list2 .job-type-item.active").attr("data-id");
+            changeInfo(jobTypeId);
+        });
+        //ajax 改变职位类型或者地点后列表信息改变
+        function changeInfo(jobType) {
+            content.empty();
+            var loaddialog = $.dialog({
+                type: 'tips',
+                infoText: '',
+                infoIcon: '${rc.contextPath}/resources/images/wait.gif'
+            });
+            //ajax请求
+            $.ajax({
+                url: '${rc.contextPath}/UPJob/QBSearch',
+                type: 'post',
+                dataType: 'json',
+                data: {
+                    QBCategory: jobType
+                },
+                success: function (data) {
+                    loaddialog.dialog.remove();
+                    //data.result
+                    if (typeof(data.JobNameList) != "undefined") {
+                        var strhtml = "";
+                        jQuery.each(data.JobNameList, function (i, JobName) {
+                            strhtml += '<li class="job-item-li" onclick="window.location.href=\'${rc.contextPath}/UPJob/QBDetail?id=' + JobName.id + '\'"><a data-id="' + JobName.id + '"><span>' + JobName.name + '（' + JobName.address + '）</span>'
+                                    + '<img src="${rc.contextPath}/resources/images/UPJob/right-icon.svg" class="down-icon" />'
+                                    + '</a></li>';
+                        });
+                        content.append(strhtml);
+                    } else {
+                        var tip = "无相关职位";
+                        content.append('<li style="border-bottom:none;margin-top:3.5rem;"><p style="text-align:center;margin-bottom:0;padding:10px 0;color:#333;"><span>' + tip + '</span></p></li>');
+                    }
+                },
+                error: function () {
+                    loaddialog.dialog.remove();
+                    zzrw.jobload("网络繁忙请稍后再试");
+                }
+            });
+        }
+    });
+</script>

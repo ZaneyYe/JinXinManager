@@ -20,7 +20,7 @@ public class UserServiceImpl implements UserService {
 
 
 	@Override
-	@Transactional
+	@Transactional(rollbackFor = {})
 	public void addUser(UserVo userVo) {
 		userVo.setCreatetime(new Date());
 		userVo.setUpdatetime(new Date());

@@ -61,8 +61,10 @@ public class PicController extends BaseController{
 		LOGGER.info("pic uploading, {}, {}....", desc, file.getOriginalFilename());
 		if (!file.isEmpty()) {
 			//上传文件
-			String fileName = file.getOriginalFilename(); //文件名
-			String descPath = Constants.localUploadPath + fileName; //目的文件
+			//文件名
+			String fileName = file.getOriginalFilename();
+			//目的文件
+			String descPath = Constants.localUploadPath + fileName;
 			try {
 				FileCopyUtils.copy(file.getBytes(), new File(descPath));
 			} catch (IOException e) {

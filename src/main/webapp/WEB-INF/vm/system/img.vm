@@ -82,7 +82,7 @@
                         },
                         {field : "url",title : '<span class="txtcenter">图片链接</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left',
                             formatter : function (value,row,index) {
-                                return "<a href='"+value+"'>"+value+"</a>";
+                                return "<a href='" + value + "' target='_blank'>" + value + "</a>";
                             }
                         },
                         {field : "createTimeStr",title : '<span class="txtcenter">上传时间</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},

@@ -1,0 +1,395 @@
+#set($layout="layout/job-default2.vm")
+<link rel="stylesheet" type="text/css" href="${rc.contextPath}/resources/css/swiper.min.css?v=$!staticVersion"/>
+<script type="text/javascript"
+        src="${rc.contextPath}/resources/js/UPJob/upjob.swiper.jquery.min.js?v=$!staticVersion"></script>
+<div class="modal-overlay2" style="display:none;">
+</div>
+<div class="up-job-index">
+    <div class="job-container">
+        <div class="title-block">
+            <p class="title">银联钱包事业部</p>
+            <div class="line"></div>
+        </div>
+        <img src="${rc.contextPath}/resources/images/UPJob/up-job-index01-v3.svg" class="img01"/>
+        <div class="separated separated1">
+            <div class="row">
+                <div id="showJobs" class="key-block key-block2">
+                    <p>查看</p>
+                    <p>职位</p>
+                </div>
+            ##			<div class="key-block key-block2" data-name="preach-block">
+            ##                <p>宣讲</p>
+            ##                <p>行程</p>
+            ##            </div>
+            ##			<div class="key-block key-block1" data-name="process-block">
+            ##                <p>招聘</p>
+            ##                <p>流程</p>
+            ##            </div>
+            </div>
+            <div class="row">
+                <a class="key-p" id="myApply">我的申请</a>
+                <a class="key-p key-p1" id="recru-object">招聘公告</a>
+            </div>
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index02.svg" class="img02"/>
+        </div>
+        <div class="title-block">
+            <p class="title">你好,</p>
+            <p class="title">这里是银联钱包。</p>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai01.svg" class="dongtai0101"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai01.svg" class="dongtai0102"/>
+            <div class="line"></div>
+        </div>
+        <p class="desc1">
+            银联钱包事业部通过不断改进研发过程、提升研发效率与质量，满足银联体系内各单位对产品、技术、运营的研发需要，并通过自主科技创新与孵化，对外输出技术平台能力，提升银联技术在市场上的影响力，积极推动中国银联向科技型公司转型发展。</p>
+        <iframe id="video-iframe" frameborder="0" width="100%"
+                src="https://v.qq.com/iframe/player.html?vid=o0549z558mu&tiny=0&auto=0" allowfullscreen></iframe>
+    </div>
+    <div class="job-container">
+        <div class="separated">
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index02.svg" class="img02"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai0202.svg" class="dongtai0202"/> -->
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai23.svg" class="dongtai201 dongtai21"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai21.svg" class="dongtai201 dongtai22"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai23.svg" class="dongtai201 dongtai23"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai21.svg" class="dongtai201 dongtai24"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai24.svg" class="dongtai202 dongtai25"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai22.svg" class="dongtai202 dongtai26"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai24.svg" class="dongtai202 dongtai27"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai22.svg" class="dongtai202 dongtai28"/>
+        </div>
+        <div class="title-block">
+            <p class="title">你未来的舞台</p>
+            <div class="line"></div>
+        </div>
+        <div class="future-block">
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index-new4.svg" class="new-img04"/>
+            <p class="desc1">组织优势</p>
+            <p class="desc2">
+                银联科技事业部拥有700余人的研发团队，聚焦核心业务研发、创新业务服务、公共平台建设、预研与孵化四大工作板块，深耕专业细分领域，形成有效研发合力，面向体系内外提供多样而高效的综合技术服务。</p>
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index-new5.svg" class="new-img05"/>
+            <p class="desc1">平台优势</p>
+            <p class="desc2">
+                银联科技事业部通过对研发资源、架构、需求、质量与安全的整体统筹，实现运作的规范高效、架构的路线统一、资源的有效配置，加强研发组织弹性，顺应技术发展趋势，为银联科技实力的可持续发展保驾护航。</p>
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index05.svg" class="img05"/>
+            <p class="desc1">发展优势</p>
+            <p class="desc2">
+                银联科技事业部为每一位新人配备专属导师，并通过完善的培训课程体系与创新激励机制帮助你快速成长、发挥才智。技术序列与管理序列的双通道发展模式为员工找准个人定位，实现企业价值与个人职业规划的双赢。</p>
+        </div>
+        <div class="separated">
+            <img src="${rc.contextPath}/resources/images/UPJob/up-job-index02.svg" class="img02" style="margin-top:0;"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai04.svg" class="dongtai0301"/>
+            <img src="${rc.contextPath}/resources/images/UPJob/dongtai04.svg" class="dongtai0302"/>
+        </div>
+        <div class="title-block">
+            <p class="title">科技人说银联</p>
+            <div class="line"></div>
+        </div>
+        <div class="employee">
+            <img src="${rc.contextPath}/resources/images/UPJob/potrait1.jpg"/>
+            <p class="desc desc1">夏季（同济大学）</p>
+            <p class="desc">岗位：客户端开发</p>
+        </div>
+        <p class="desc2">
+            “我是15年的银星计划实习生，16年正式加入银联，参与客户端产品开发和创新技术研究。在这里有精湛的技术团队，有手把手带你入门、陪你快速成长的导师，有热心帮你解惑的同事，有展现自我的编程马拉松大赛……还等什么？快来加入银联科技吧！”</p>
+        <div class="employee">
+            <img src="${rc.contextPath}/resources/images/UPJob/huiqingxi.jpg"/>
+            <p class="desc desc1">惠清曦（浙江大学）</p>
+            <p class="desc">岗位：交互设计</p>
+        </div>
+        <p class="desc2">
+            “16年从象牙塔迈入银联交互团队，在参与了一些项目后对银联业务有了更深的了解，在项目中与需求、前端、后台等同事沟通并提供设计方案时，除了专业技能的积累，在团队合作、逻辑分析和时间管理方面也获得成长。愿我们在银联都能遇到更好的自己！”</p>
+        <div class="employee">
+            <img src="${rc.contextPath}/resources/images/UPJob/sunguangning.jpg"/>
+            <p class="desc desc1">孙广宁 （中国科学技术大学）</p>
+            <p class="desc">岗位：系统开发</p>
+        </div>
+        <p class="desc2">“怀揣着梦想离开学校，满腔的热血与中国银联擦出火花，在这里生活的每一天，都有意想不到的变化在发生，这里没有尘土飞扬，这里弥漫花香，中国银联，是我们梦想起飞的地方。”</p>
+    </div>
+    <img src="${rc.contextPath}/resources/images/UPJob/up-job-index08.svg" class="img08"/>
+</div>
+<div class="modal-overlay" style="display:none;"></div>
+<div class="preach-block" style="display:none;">
+    <img src="${rc.contextPath}/resources/images/UPJob/process-close.svg" class="process-close"/>
+    <img src="${rc.contextPath}/resources/images/UPJob/preach-bg1.png" class="preach-bg1"/>
+    <img src="${rc.contextPath}/resources/images/UPJob/preach-bg2.png" class="preach-bg2"/>
+    <div class="job-container">
+        <div class="preach-item">
+            <p class="desc1">武汉</p>
+            <p class="desc2">宣讲院校：武汉大学</p>
+            <p class="desc2">宣讲校区：信息学部</p>
+            <p class="desc2">宣讲日期：9月14日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">西安</p>
+            <p class="desc2">宣讲院校：西安交通大学</p>
+            <p class="desc2">宣讲校区：兴庆校区</p>
+            <p class="desc2">宣讲日期：9月14日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">南京</p>
+            <p class="desc2">宣讲院校：东南大学</p>
+            <p class="desc2">宣讲校区：九龙湖校区</p>
+            <p class="desc2">宣讲日期：9月18日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">重庆</p>
+            <p class="desc2">宣讲院校：重庆大学</p>
+            <p class="desc2">宣讲校区：虎溪校区</p>
+            <p class="desc2">宣讲日期：9月18日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">哈尔滨</p>
+            <p class="desc2">宣讲院校：哈尔滨工业大学</p>
+            <p class="desc2">宣讲校区：一校区</p>
+            <p class="desc2">宣讲日期：9月18日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">成都</p>
+            <p class="desc2">宣讲院校：电子科技大学</p>
+            <p class="desc2">宣讲校区：沙河校区</p>
+            <p class="desc2">宣讲日期：9月20日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">大连</p>
+            <p class="desc2">宣讲院校：大连理工大学</p>
+            <p class="desc2">宣讲校区：开发区校区</p>
+            <p class="desc2">宣讲日期：9月21日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">杭州</p>
+            <p class="desc2">宣讲院校：浙江大学</p>
+            <p class="desc2">宣讲校区：玉泉校区</p>
+            <p class="desc2">宣讲日期：9月22日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">广州</p>
+            <p class="desc2">宣讲院校：华南理工大学</p>
+            <p class="desc2">宣讲校区：大学城校区</p>
+            <p class="desc2">宣讲日期：9月25日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">合肥</p>
+            <p class="desc2">宣讲院校：中国科学技术大学</p>
+            <p class="desc2">宣讲校区：西区</p>
+            <p class="desc2">宣讲日期：9月25日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">沈阳</p>
+            <p class="desc2">宣讲院校：东北大学</p>
+            <p class="desc2">宣讲校区：南湖校区</p>
+            <p class="desc2">宣讲日期：9月25日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">天津</p>
+            <p class="desc2">宣讲院校：南开大学</p>
+            <p class="desc2">宣讲校区：津南新校区</p>
+            <p class="desc2">宣讲日期：10月9日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">长沙</p>
+            <p class="desc2">宣讲院校：湖南大学</p>
+            <p class="desc2">宣讲校区：南校区</p>
+            <p class="desc2">宣讲日期：10月9日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">兰州</p>
+            <p class="desc2">宣讲院校：兰州大学</p>
+            <p class="desc2">宣讲校区：盘旋路校区</p>
+            <p class="desc2">宣讲日期：10月9日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">北京</p>
+            <p class="desc2">宣讲院校：北京航空航天大学</p>
+            <p class="desc2">宣讲校区：学院路校区</p>
+            <p class="desc2">宣讲日期：10月12日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+        <div class="preach-item">
+            <p class="desc1">上海</p>
+            <p class="desc2">宣讲院校：华东师范大学</p>
+            <p class="desc2">宣讲校区：中北校区</p>
+            <p class="desc2">宣讲日期：10月13日</p>
+            <p class="desc2">宣讲地点：待定</p>
+        </div>
+    </div>
+</div>
+<div class="process-block" style="display:none;">
+    <img src="${rc.contextPath}/resources/images/UPJob/process-close.svg" class="process-close"/>
+    <div class="job-container">
+        <p class="desc1">应聘者网申</p>
+        <p class="desc2">9月7日-10月15日</p>
+        <img src="${rc.contextPath}/resources/images/UPJob/process-arrow.svg" class="process-arrow"/>
+        <p class="desc1">宣讲、笔试、面试</p>
+        <p class="desc2">9月11日-10月20日</p>
+        <img src="${rc.contextPath}/resources/images/UPJob/process-arrow.svg" class="process-arrow"/>
+        <p class="desc1">背景调查、体检、</p>
+        <p class="desc1">发放offer、签约</p>
+        <p class="desc2">10月中旬-11月底</p>
+    </div>
+</div>
+<div class="object-block" style="display:none;">
+    <img src="${rc.contextPath}/resources/images/UPJob/process-close.svg" class="object-close"/>
+    <p class="title">招聘公告</p>
+    <div class="job-container">
+        <p class="content2">一、招聘对象：</p>
+        <p class="content">境内外高等院校2018年应届计算机、数学统计相关专业全日制毕业生（含本科生、硕士研究生、博士研究生）。</p>
+        <p class="content2">二、招聘条件：</p>
+        <p class="content2">（一）具有中华人民共和国国籍，热爱祖国，遵纪守法，无不良记录。</p>
+        <p class="content2">
+            （二）学历及相关要求：1.境内高校应届毕业生：具有全日制大学本科或以上学历，培养方式为统招统分（不含定向和委培毕业生）。2018年7月前毕业，且报到入职时毕业证、学位证、就业报到证“三证齐全”，须为初次就业。2.海外院校留学归国人员：须为初次就业的留学归国人员。毕业回国时间一般不早于2017年7月，并应能够在2018年6月底前从境外院校获得学位证书、取得教育部学历学位认证，开始全职工作。</p>
+        <p class="content2">
+            （三）一般应通过大学英语四级考试（成绩不低于425分）、托业（TOEIC）听读公开考试715分及以上，或新托福（TOEFL-IBT）考试85分及以上，或雅思（IELTS）考试6.5分及以上。 </p>
+        <p class="content2">（四）学业成绩优秀，在本专业排名靠前，无不合格科目。</p>
+        <p class="content2">（五）综合素质较好，一般应有学生社团管理经历，曾获得奖学金及其他相关荣誉称号。</p>
+        <p class="content2">（六）具有较强的学习能力、沟通能力和团队协作精神,能承受较强的工作压力。</p>
+        <p class="content">（七）品行端正，身心健康，具有正常履行工作职责的身心条件。</p>
+        <p class="content2">三、招聘程序：</p>
+        <p class="content2">招聘程序包括网上报名、初选、笔试、面试及体检、录用签约等步骤。</p>
+        <p class="content2">
+            （一）网上报名：应聘者登陆中国银联校园招聘网站（https://billcloud.unionpay.com/wxweb/UPJob/index）或扫描下方二维码，查看招聘职位信息，通过网上报名系统报名，并于2017年9月8日-10月15日24:00提交简历。</p>
+        <div class="img-div">
+            <img src="${rc.contextPath}/resources/images/UPJob/qrcode.png" class="qr-link"/>
+        </div>
+        <p class="content2">（二）初选：对应聘者进行初步筛选，根据应聘者的条件确定参加笔试人员名单。</p>
+        <p class="content2">
+            （三）笔试：总公司职位笔试预计于2017年9月11日-10月20日举行。分公司职位笔试预计于2017年10月15日举行。具体时间以通知为准。笔试通知将通过邮件和短信通知应聘者，未收到笔试通知的应聘者，将不再另行通知。</p>
+        <p class="content2">（四）面试及体检：面试通知将通过电话和邮件通知应聘者。体检通知将通过电话和邮件通知应聘者，收到体检通知的人员请按指定时间和地点参加体检。</p>
+        <p class="content">（五）录用签约：根据考试、面试及体检结果择优确定最终录用人选。如未被录用不再另行通知，有关材料恕不退还。</p>
+        <p class="content2">四、注意事项：</p>
+        <p class="content2">（一）除网上报名外，不接受其他形式的报名。网上报名前，应聘者需首先浏览《招聘公告》，了解招聘的有关说明和要求。</p>
+        <p class="content2">（二）各招聘职位要求详见“查看职位”栏目信息。报名时请注意区分招聘单位、工作地点和招聘职位，避免出现误报的情况。</p>
+        <p class="content2">（三）应聘者登陆报名系统进行报名,提交简历后,个人资料将无法再修改。</p>
+        <p class="content2">（四）应聘者应对填写内容的真实性负责，如与事实不符，中国银联有权取消其录用资格。</p>
+        <p class="content2">（五）应聘者务必保证提交的联系方式（包括E-mail邮箱、手机等）正确无误，并保证通讯畅通。 </p>
+        <p class="content2">（六）我公司从未指定任何单位和个人编写有关考试教材，不举办也不委托任何单位和个人举办有关考试的培训班，请应聘者切勿轻信各类虚假广告和诈骗信息。</p>
+        <p class="content">（七）我公司保留根据招聘情况调整相关招聘职位的权利。</p>
+        <p class="content3">中国银联人力资源部 </p>
+        <p class="content3">2017年9月8日 </p>
+    </div>
+</div>
+<div class="pop-block pop-tips" id="tips-block" style="display:none;height:5.6rem;top:50%;">
+    <div class="pop-content">
+        <p>内推网申已结束</p>
+    </div>
+    <div class="dialog-content-ft">
+        <button class="dialog-btn dialog-btn-ok" id="check-position">知道了</button>
+    </div>
+</div>
+
+<script>
+    $("#showJobs").on("click", function () {
+        if ("$!closeMark" != "") {
+            // 申请停止
+            $(".modal-overlay2").css("display", "block");
+            $(".pop-tips").css("display", "block");
+        } else {
+            window.location.href = '${rc.contextPath}/UPJob/QBSelect';
+        }
+    });
+    $("#check-position").click(function () {
+        $(".modal-overlay2").css("display", "none");
+        $(".pop-tips").css("display", "none");
+    });
+    $(function () {
+        var winWidth = document.documentElement.clientWidth;
+        if (winWidth > 800) {
+            winWidth = 800;
+        }
+        $("#video-iframe").css("height", winWidth * 0.5);
+        function pageFixed() {
+            $(".up-job-index").css("position", "fixed");
+        };
+        // 图片轮播效果
+        var $listAd =
+        $("#listAd");
+        if ($listAd.length>
+        0
+        )
+        {
+            if ($("#listAd .swiper-slide").length > 1) {
+                swiperAd = new Swiper($listAd, {
+                    pagination: '.swiper-pagination',
+                    paginationType: 'fraction',
+                    spaceBetween: 0,
+                    centeredSlides: true,
+                    autoplay: 2000,
+                    autoplayDisableOnInteraction: true,
+                    loop: true,
+                    effect: 'fade',
+                    autoplayDisableOnInteraction: false
+                });
+            }
+        }
+        ;
+        $("#recru-object").click(function () {
+            $(".modal-overlay").css("display", "block");
+            $(".object-block").css("display", "block");
+            pageFixed();
+        });
+        $(".object-block .object-close").click(function () {
+            $(".modal-overlay").css("display", "none");
+            $(".object-block").css("display", "none");
+            $(".up-job-index").css("position", "relative");
+        });
+        $('[data-name="preach-block"]').click(function () {
+            $(".modal-overlay").css("display", "block");
+            $(".preach-block").css("display", "block");
+            pageFixed();
+        });
+        $('[data-name="process-block"]').click(function () {
+            $(".modal-overlay").css("display", "block");
+            $(".process-block").css("display", "block");
+            pageFixed();
+        });
+        $(".preach-block .process-close").click(function () {
+            $(".modal-overlay").css("display", "none");
+            $(".preach-block").css("display", "none");
+            $(".up-job-index").css("position", "relative");
+        });
+        $(".process-block .process-close").click(function () {
+            $(".modal-overlay").css("display", "none");
+            $(".process-block").css("display", "none");
+            $(".up-job-index").css("position", "relative");
+        });
+        $("#myApply").click(function () {
+            if (localStorage.UnionpayJobApplyPhoneNo) {
+                //手机号为localStorage.UnionpayJobApplyPhoneNo，验证码为localStorage.UnionpayJobApplyCodeNo
+                $.ajax({
+                    url: '${rc.contextPath}/UPJobApply/myApplicationValid',
+                    type: 'POST',
+                    dataType: 'json',
+                    data: {
+                        code: localStorage.UnionpayJobApplyCodeNo,
+                        phone: localStorage.UnionpayJobApplyPhoneNo
+                    },
+                    success: function (data) {
+                        if (data.result == "success") {
+                            window.location.href = "${rc.contextPath}/UPJobApply/success";
+                        } else {
+                            window.location.href = "${rc.contextPath}/UPJobApply/index";
+                        }
+                    },
+                    error: function () {
+                        zzrw.jobload("网络繁忙请稍后再试");
+                    }
+                });
+            } else {
+                window.location.href = "${rc.contextPath}/UPJobApply/index";
+            }
+        });
+    })
+</script>
