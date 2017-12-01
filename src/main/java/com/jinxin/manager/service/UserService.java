@@ -23,4 +23,11 @@ public interface UserService {
 	 * @return
 	 */
 	PageInfo queryPageUses(RequestPage requestPage);
+
+	/**
+	 * 删除用户
+	 *
+	 * @param userId
+	 */
+	void delUser(Integer userId);
 }

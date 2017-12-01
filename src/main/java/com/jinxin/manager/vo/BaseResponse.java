@@ -5,6 +5,7 @@ import com.jinxin.manager.enumkit.StateInfo;
 /**
  * Created by yzy on 2017/7/23.
  * email: mia5121@163.com
+ * @author yezhangyuan
  */
 public class BaseResponse {
 

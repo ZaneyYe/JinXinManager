@@ -8,11 +8,11 @@
     </insert>
 
     <select id="queryTotalUsers" resultType="java.lang.Integer">
-        SELECT count(1) FROM t_manager
+        SELECT count(1) FROM t_manager WHERE is_del = 1
     </select>
 
     <select id="queryPageUsers" resultType="com.jinxin.manager.po.User">
-        SELECT * FROM t_manager
+        SELECT * FROM t_manager WHERE is_del = 1
         <include refid="setPage"/>
     </select>
 

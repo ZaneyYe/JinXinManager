@@ -338,52 +338,52 @@ public class UserExample {
 		public Criteria andSexEqualTo(Integer value) {
 			addCriterion("sex =", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexNotEqualTo(Integer value) {
 			addCriterion("sex <>", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexGreaterThan(Integer value) {
 			addCriterion("sex >", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexGreaterThanOrEqualTo(Integer value) {
 			addCriterion("sex >=", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexLessThan(Integer value) {
 			addCriterion("sex <", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexLessThanOrEqualTo(Integer value) {
 			addCriterion("sex <=", value, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexIn(List<Integer> values) {
 			addCriterion("sex in", values, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexNotIn(List<Integer> values) {
 			addCriterion("sex not in", values, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexBetween(Integer value1, Integer value2) {
 			addCriterion("sex between", value1, value2, "sex");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andSexNotBetween(Integer value1, Integer value2) {
 			addCriterion("sex not between", value1, value2, "sex");
 			return (Criteria) this;
-        }
+		}
 
         public Criteria andPhoneIsNull() {
             addCriterion("phone is null");
@@ -594,6 +594,66 @@ public class UserExample {
             addCriterion("salt not between", value1, value2, "salt");
             return (Criteria) this;
         }
+
+		public Criteria andIsDelIsNull() {
+			addCriterion("is_del is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelIsNotNull() {
+			addCriterion("is_del is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelEqualTo(Boolean value) {
+			addCriterion("is_del =", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelNotEqualTo(Boolean value) {
+			addCriterion("is_del <>", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelGreaterThan(Boolean value) {
+			addCriterion("is_del >", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelGreaterThanOrEqualTo(Boolean value) {
+			addCriterion("is_del >=", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelLessThan(Boolean value) {
+			addCriterion("is_del <", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelLessThanOrEqualTo(Boolean value) {
+			addCriterion("is_del <=", value, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelIn(List<Boolean> values) {
+			addCriterion("is_del in", values, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelNotIn(List<Boolean> values) {
+			addCriterion("is_del not in", values, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelBetween(Boolean value1, Boolean value2) {
+			addCriterion("is_del between", value1, value2, "isDel");
+			return (Criteria) this;
+		}
+
+		public Criteria andIsDelNotBetween(Boolean value1, Boolean value2) {
+			addCriterion("is_del not between", value1, value2, "isDel");
+			return (Criteria) this;
+		}
 
         public Criteria andCreatetimeIsNull() {
             addCriterion("createtime is null");

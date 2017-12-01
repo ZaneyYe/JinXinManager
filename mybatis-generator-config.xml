@@ -260,7 +260,7 @@
             <columnRenamingRule searchString="" replaceString=""/>
              -->
 
-
+            <!--<columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />-->
             <!-- 用来修改表中某个列的属性，MBG会使用修改后的列来生成domain的属性；
                 column:要重新设置的列名；
                 注意，一个table元素中可以有多个columnOverride元素哈~

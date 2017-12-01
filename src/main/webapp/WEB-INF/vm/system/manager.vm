@@ -141,7 +141,7 @@
                             width: $(this).width() * 0.05,
                             align: 'center',
                             formatter: function (value, row, index) {
-                                var d = "<button class='txtcenter' id='delBtn' onclick='toDelPic(" + row.id + ")'>删除</button>";
+                                var d = "<button class='txtcenter' id='delBtn' onclick='toDelUser(" + row.id + ")'>删除</button>";
                                 return d;
                             }
                         }
@@ -216,4 +216,27 @@
         });
     })
 
+    function toDelUser(userId) {
+        var id = userId;
+        $.messager.confirm("确认", "您确定删除该用户", function (rs) {
+            if (rs) {
+                $.ajax({
+                    url: "$!basePath/user/delUser.do",
+                    type: "POST",
+                    data: {"userId": userId},
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.code == 1) {
+                            $("#userTt").datagrid("reload");
+                        } else {
+                            $.messager.alert("警告", "删除失败");
+                        }
+                    },
+                    error: function (e) {
+                        $.messager.alert("警告", "删除失败");
+                    }
+                })
+            }
+        })
+    }
 </script>

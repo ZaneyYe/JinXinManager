@@ -1,6 +1,7 @@
 package com.jinxin.manager.vo;
 
 /**
+ * @author yezhangyuan
  * Created by yzy on 2017/7/23.
  * email: mia5121@163.com
  * Json返回体

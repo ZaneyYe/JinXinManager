@@ -3,9 +3,12 @@ package com.jinxin.manager.service;
 import com.jinxin.manager.dao.UserDao;
 import com.jinxin.manager.po.User;
 import com.jinxin.manager.util.ConvertUtils;
+import com.jinxin.manager.vo.BussinessException;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.UserVo;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -19,6 +22,8 @@ import java.util.List;
  */
 @Service
 public class UserServiceImpl implements UserService {
+
+	private static final Logger LOGGER = LoggerFactory.getLogger(UserServiceImpl.class);
 
 	@Autowired
 	private UserDao userDao;
@@ -45,5 +50,22 @@ public class UserServiceImpl implements UserService {
 		return pageInfo;
 	}
 
-
+	@Override
+	public void delUser(Integer userId) {
+		if (userId == null) {
+			LOGGER.info("del user,user is null");
+			return;
+		}
+		User user = userDao.selectByPrimaryKey(userId);
+		if (user == null) {
+			LOGGER.info("db user is null");
+			return;
+		}
+		try {
+			userDao.deleteByPrimaryKey(userId);
+		} catch (Exception e) {
+			throw new BussinessException("del user occur error");
+		}
+		return;
+	}
 }

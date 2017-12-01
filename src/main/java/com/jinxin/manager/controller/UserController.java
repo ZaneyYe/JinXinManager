@@ -71,5 +71,12 @@ public class UserController {
 		return pageInfo;
 	}
 
-
+	@RequestMapping(value = "/delUser.do", method = RequestMethod.POST)
+	@ResponseBody
+	public ResponseEntity<StateInfo> delUser(HttpServletRequest request, Integer userId) {
+		ResponseEntity entity = new ResponseEntity();
+		userService.delUser(userId);
+		entity.setResult(StateInfo.SUCCESS);
+		return entity;
+	}
 }
