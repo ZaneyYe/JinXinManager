@@ -3,6 +3,8 @@ package com.jinxin.manager.controller;
 import com.jinxin.manager.enumkit.StateInfo;
 import com.jinxin.manager.service.UserService;
 import com.jinxin.manager.util.ShiroKit;
+import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.ResponseEntity;
 import com.jinxin.manager.vo.UserVo;
 import org.slf4j.Logger;
@@ -14,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
+import java.util.List;
 
 /**
  * Created by yzy on 2017/08/18 下午 3:51.
@@ -52,6 +55,21 @@ public class UserController {
 		return responseEntity;
 	}
 
+	/**
+	 * 分页查询
+	 *
+	 * @param request
+	 * @param requestPage
+	 * @return
+	 */
+	@RequestMapping("/list.do")
+	@ResponseBody
+	public PageInfo<List<UserVo>> listUser(HttpServletRequest request, RequestPage requestPage) {
+		PageInfo pageInfo = null;
+		LOGGER.info("query users, page:{}, rows:{}", requestPage.getPage(), requestPage.getRows());
+		pageInfo = userService.queryPageUses(requestPage);
+		return pageInfo;
+	}
 
 
 }

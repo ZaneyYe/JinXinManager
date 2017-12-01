@@ -94,7 +94,7 @@
                             align: 'left'
                         },
                         {
-                            field: "type",
+                            field: "name",
                             title: '<span class="txtcenter">用户姓名</span>',
                             resizable: true,
                             hidden: false,
@@ -103,7 +103,7 @@
                             align: 'left'
                         },
                         {
-                            field: "remark",
+                            field: "userSex",
                             title: '<span class="txtcenter">用户性别</span>',
                             resizable: true,
                             hidden: false,
@@ -112,7 +112,7 @@
                             align: 'left'
                         },
                         {
-                            field: "url",
+                            field: "phone",
                             title: '<span class="txtcenter">用户手机</span>',
                             resizable: true,
                             hidden: false,
@@ -125,7 +125,7 @@
                         },
                         {
                             field: "createTimeStr",
-                            title: '<span class="txtcenter">上传时间</span>',
+                            title: '<span class="txtcenter">创建时间</span>',
                             resizable: true,
                             hidden: false,
                             sortable: false,
@@ -178,13 +178,14 @@
         if ($("#password").val() == "") {
             $.messager.alert("警告", "密码不能为空");
         }
-        if (/^$/.test($("#repassword"))) {
-
+        if ($("#repassword").val() != $("#password").val()) {
+            $.messager.alert("警告", "两次密码输入不同")
         }
     }
 
     //提交用户资料
     $("#subBtn").click(function () {
+        validParam();
         var name = $("#name").val();
         var sex = $(":input[name='sex']:checked").val();
         var phone = $("#phone").val();
@@ -204,6 +205,7 @@
             success: function (data) {
                 if (data.code == 1) {
                     $("#addUserWin").modal('hide');
+                    $("#userTt").datagrid("reload");
                 } else {
                     $.messager.alert("警告", "添加用户失败");
                 }
@@ -213,6 +215,5 @@
             }
         });
     })
-
 
 </script>

@@ -7,5 +7,18 @@
         VALUES (#{name},#{sex},#{phone},#{password},#{salt},#{createtime},#{updatetime})
     </insert>
 
+    <select id="queryTotalUsers" resultType="java.lang.Integer">
+        SELECT count(1) FROM t_manager
+    </select>
+
+    <select id="queryPageUsers" resultType="com.jinxin.manager.po.User">
+        SELECT * FROM t_manager
+        <include refid="setPage"/>
+    </select>
+
+    <sql id="setPage">
+        limit #{start},#{rows}
+    </sql>
+
 
 </mapper>

@@ -1,5 +1,7 @@
 package com.jinxin.manager.service;
 
+import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.UserVo;
 
 /**
@@ -14,4 +16,11 @@ public interface UserService {
 	 */
 	void addUser(UserVo userVo);
 
+	/**
+	 * 分页查询用户
+	 *
+	 * @param requestPage
+	 * @return
+	 */
+	PageInfo queryPageUses(RequestPage requestPage);
 }
