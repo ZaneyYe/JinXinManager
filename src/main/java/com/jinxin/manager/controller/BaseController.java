@@ -45,4 +45,9 @@ public class BaseController {
 		return "system/manager";
 	}
 
+	@RequestMapping("/content_manage.do")
+	public String toContentManager() {
+		return "system/content";
+	}
+
 }
