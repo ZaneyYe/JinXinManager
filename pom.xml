@@ -184,7 +184,8 @@
                 <configuration>
                     <configurationFile>${basedir}/mybatis-generator-config.xml</configurationFile>
                     <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                    <jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>
+                    <!--<jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>-->
+                    <jdbcURL>jdbc:mysql://127.0.0.1:3306/jinxin</jdbcURL>
                     <jdbcUserId>root</jdbcUserId>
                     <jdbcPassword>root</jdbcPassword>
                     <verbose>true</verbose>
