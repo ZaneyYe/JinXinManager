@@ -26,8 +26,9 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
     <!-- REQUIRED JS -->
     <!-- jQuery 3 -->
-    <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
-    <script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script>
+#*   <script src="/bower_components/jquery/dist/jquery.min.js" type="text/javascript"></script>
+   <script src="/bower_components/jquery/dist/jquery.js" type="text/javascript"></script>*#
+    <script src="/mgjs/edit/third-party/jquery-1.10.2.js" type="text/javascript"></script>
     <!-- Bootstrap 3.3.7 -->
     <script src="/bower_components/bootstrap/dist/js/bootstrap.min.js" type="text/javascript"></script>
     <!-- AdminLTE App -->
