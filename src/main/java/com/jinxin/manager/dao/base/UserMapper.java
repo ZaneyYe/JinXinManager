@@ -2,8 +2,9 @@ package com.jinxin.manager.dao.base;
 
 import com.jinxin.manager.po.User;
 import com.jinxin.manager.po.UserExample;
-import java.util.List;
 import org.apache.ibatis.annotations.Param;
+
+import java.util.List;
 
 public interface UserMapper {
     /**
