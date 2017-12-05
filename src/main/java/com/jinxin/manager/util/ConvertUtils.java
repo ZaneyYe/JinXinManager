@@ -2,6 +2,7 @@ package com.jinxin.manager.util;
 
 
 import org.apache.commons.beanutils.BeanUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
@@ -57,5 +58,21 @@ public class ConvertUtils {
 		return desList;
 	}
 
-
+	/**
+	 * 防止sql注入工具
+	 *
+	 * @param content
+	 * @return
+	 */
+	public final static String escapeHtml(String content) {
+		if (StringUtils.isBlank(content)) {
+			return "";
+		}
+		content = content.replace("<", "&#60;");
+		content = content.replace(">", "&#62;");
+		content = content.replace("\"", "&#34;");
+		content = content.replace("'", "&#39;");
+		content = content.replaceAll("&(?![\\w#]+;|#\\d+)", "&#38;");
+		return content;
+	}
 }

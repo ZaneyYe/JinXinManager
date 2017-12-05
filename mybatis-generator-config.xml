@@ -57,7 +57,8 @@
         <!-- 必须要有的，使用这个配置链接数据库
             @TODO:是否可以扩展
          -->
-        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.43.3/jinxin" userId="root" password="root">
+        <jdbcConnection driverClass="com.mysql.jdbc.Driver" connectionURL="jdbc:mysql://192.168.43.3:3306/jinxin"
+                        userId="root" password="root">
             <!-- 这里面可以设置property属性，每一个property属性都设置到配置的Driver上 -->
         </jdbcConnection>
 
@@ -186,7 +187,7 @@
         <!--&lt;!&ndash;<columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />&ndash;&gt;-->
         <!--</table>-->
 
-        <table tableName="t_manager" domainObjectName="User">
+        <table tableName="t_my_blog" domainObjectName="BlogArticle">
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <property name="constructorBased" value="false"/>
@@ -260,7 +261,8 @@
             <columnRenamingRule searchString="" replaceString=""/>
              -->
 
-            <!--<columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />-->
+            <columnOverride column="is_support" property="support" javaType="java.lang.Integer" jdbcType="INTEGER"/>
+            <columnOverride column="is_secret" property="secret" javaType="java.lang.Integer" jdbcType="INTEGER"/>
             <!-- 用来修改表中某个列的属性，MBG会使用修改后的列来生成domain的属性；
                 column:要重新设置的列名；
                 注意，一个table元素中可以有多个columnOverride元素哈~

@@ -113,7 +113,7 @@ public class PicController extends BaseController {
 				visitUrl = "http://localhost/"; //与properties文件中lyz.visit.url相同，未读取到文件数据时为visitUrl赋默认值
 			}
 			String fileName = String.valueOf(System.currentTimeMillis()).concat("_")
-					.concat(String.valueOf(RandomUtils.nextInt())).concat(".")
+					.concat(String.valueOf(RandomUtils.nextInt(10))).concat(".")
 					.concat(upfile.getOriginalFilename());
 			StringBuilder sb = new StringBuilder();
 			//拼接保存路径

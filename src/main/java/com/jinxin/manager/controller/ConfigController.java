@@ -30,7 +30,7 @@ public class ConfigController {
 		response.setHeader("Content-Type", "text/html");
 		String roolPath = request.getSession().getServletContext().getRealPath("/");
 		//roolPath:E:\IdeaProjects\JinXinManager\target\JinXinManager\
-//		String roolPath = ConfigController.class.getClassLoader().getResource("").getPath();
+		//String roolPath = ConfigController.class.getClassLoader().getResource("").getPath();
 		LOGGER.info("roolPath:.......{}", roolPath);
 		LOGGER.info("contextPath:..... {}", request.getContextPath());
 		LOGGER.info("request uri:.....{}", request.getRequestURI());

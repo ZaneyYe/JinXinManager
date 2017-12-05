@@ -1,4 +1,8 @@
 <?xml version="1.0"?>
 <toolbox>
-
+    <tool>
+        <key>dictUtils</key>
+        <scope>application</scope>
+        <class>com.jinxin.manager.util.DictUtil</class>
+    </tool>
 </toolbox>

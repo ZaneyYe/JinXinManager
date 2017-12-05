@@ -1,3 +1,39 @@
 #macro(blank)
 &nbsp;
 #end
+
+
+##普通的字典下拉框
+##simpleCombobox("saleOrderDataState" "com.manyi.iw.contract.soa.api.model.dict.enums.SaleOrderDataState" "" "" "全部" "" "editable:false,panelHeight:'auto'")
+#macro (simpleCombobox $id $entryName $methodName $defaultValue $limitText $limitValue $dataOptions)
+##根据类名获取字典里的枚举集合
+    #set($dicts = "")
+    #if($entryName.indexOf(".") != -1)
+    ## 有全路径类型
+        #set($dicts = $dictUtils.getDataByCompleteClassName($entryName, $methodName))
+    #else
+        #if($methodName == "")
+            #set($dicts = $dictUtils.getData($entryName))
+        #else
+            #set($dicts = $dictUtils.getDataByMethod($entryName, $methodName))
+        #end
+    #end
+##判断列表长度
+    #if($dicts && $dicts.size() > 0)
+    <select class="form-control" data-options="$!dataOptions" id="$!{id}" name="$!{id}">
+    ##初始化第一个下拉框
+        #if($limitText && $limitText != "")
+            <option title="$!limitText" value="$!limitValue">$!limitText</option>
+        #end
+    ##初始化其它下拉框
+        #foreach($dict in $dicts)
+            #set($dict_id = $dict.intValue())
+            <option title="$!{dict.name}" value="$!{dict_id}"
+                #if($defaultValue == $dict_id)
+                    selected="selected"
+                #end
+            >$!{dict.name}</option>
+        #end
+    </select>
+    #end
+#end

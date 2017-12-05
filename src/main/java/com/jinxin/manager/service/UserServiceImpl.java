@@ -1,6 +1,6 @@
 package com.jinxin.manager.service;
 
-import com.jinxin.manager.dao.UserDao;
+import com.jinxin.manager.dao.customer.UserDao;
 import com.jinxin.manager.po.User;
 import com.jinxin.manager.util.ConvertUtils;
 import com.jinxin.manager.vo.BussinessException;

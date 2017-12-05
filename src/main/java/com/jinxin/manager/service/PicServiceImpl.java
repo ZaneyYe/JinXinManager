@@ -1,6 +1,6 @@
 package com.jinxin.manager.service;
 
-import com.jinxin.manager.dao.PicDao;
+import com.jinxin.manager.dao.customer.PicDao;
 import com.jinxin.manager.po.ImgInfo;
 import com.jinxin.manager.vo.BussinessException;
 import com.jinxin.manager.vo.ImgInfoVo;
