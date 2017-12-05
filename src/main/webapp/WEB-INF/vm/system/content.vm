@@ -74,9 +74,10 @@
     var ue = UE.getEditor('container');
 
     function getContent() {
-        return UE.getEditor('container').getContent();
+        return UE.getEditor('container').getContent().valueOf();
     }
     $("#save").click(function () {
+        ue.sync();
         var title = $("#articTitle").val();
         var summary = $("#summary").val();
         var content = getContent();
@@ -101,7 +102,7 @@
             cache: false,
             success: function (data) {
                 if (data.code == 1) {
-                    $.messager.alert
+//                    $.messager.alert
                 }
             }
         })

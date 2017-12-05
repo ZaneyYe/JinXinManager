@@ -2,13 +2,13 @@ package com.jinxin.manager.service;
 
 import com.jinxin.manager.dao.customer.ArticleDao;
 import com.jinxin.manager.po.BlogArticle;
-import com.jinxin.manager.util.ConvertUtils;
 import com.jinxin.manager.vo.BussinessException;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
 
@@ -26,6 +26,7 @@ public class ArticleServiceImpl implements ArticleService {
 	private ArticleDao articleDao;
 
 	@Override
+	@Transactional(rollbackFor = {})
 	public void saveOneArticle(BlogArticle article) {
 		if (StringUtils.isBlank(article.getTitle())) {
 			throw new BussinessException("标题不能为空");
@@ -33,10 +34,10 @@ public class ArticleServiceImpl implements ArticleService {
 		if (StringUtils.isBlank(article.getSummary())) {
 			throw new BussinessException("摘要不能为空");
 		}
-		String content = ConvertUtils.escapeHtml(article.getArticle());
-		if (StringUtils.isNotBlank(content)) {
-			article.setArticle(content);
-		}
+//		String content = ConvertUtils.escapeHtml(article.getArticle());
+//		if (StringUtils.isNotBlank(content)) {
+//			article.setArticle(content);
+//		}
 		article.setCreattime(new Date());
 		article.setUpdatetime(new Date());
 		articleDao.insertSelective(article);
