@@ -27,6 +27,24 @@
         <jsp.api.version>2.3.1</jsp.api.version>
     </properties>
 
+    <profiles>
+        <profile>
+            <id>home</id>
+            <properties>
+                <env>home</env>
+                <jdbc.url>jdbc:mysql://127.0.0.1:3306/jinxin</jdbc.url>
+            </properties>
+        </profile>
+
+        <profile>
+            <id>company</id>
+            <properties>
+                <env>company</env>
+                <jdbc.url>jdbc:mysql://192.168.43.3:3306/jinxin</jdbc.url>
+            </properties>
+        </profile>
+    </profiles>
+
     <dependencies>
         <!--spring mvc -->
         <dependency>
@@ -200,6 +218,23 @@
         <resources>
             <resource>
                 <directory>${basedir}/src/main/resources</directory>
+                <filtering>true</filtering>
+                <includes>
+                    <include>*.xml</include>
+                    <include>*.properties</include>
+                    <include>mybatis/**/*</include>
+                    <include>spring/**/*</include>
+                </includes>
+                <excludes>
+                    <exclude>jdbc.properties</exclude>
+                </excludes>
+            </resource>
+
+            <resource>
+                <directory>${basedir}/src/main/resources/config/${env}</directory>
+                <includes>
+                    <include>jdbc.properties</include>
+                </includes>
             </resource>
         </resources>
 
@@ -211,8 +246,9 @@
                 <configuration>
                     <configurationFile>${basedir}/mybatis-generator-config.xml</configurationFile>
                     <jdbcDriver>com.mysql.jdbc.Driver</jdbcDriver>
-                    <jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>
+                    <!--<jdbcURL>jdbc:mysql://192.168.43.3:3306/jinxin</jdbcURL>-->
                     <!--<jdbcURL>jdbc:mysql://127.0.0.1:3306/jinxin</jdbcURL>-->
+                    <jdbcURL>${jdbc.url}</jdbcURL>
                     <jdbcUserId>root</jdbcUserId>
                     <jdbcPassword>root</jdbcPassword>
                     <verbose>true</verbose>

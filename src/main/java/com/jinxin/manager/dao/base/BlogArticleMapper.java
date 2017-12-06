@@ -3,7 +3,6 @@ package com.jinxin.manager.dao.base;
 import com.jinxin.manager.po.BlogArticle;
 import com.jinxin.manager.po.BlogArticleExample;
 import java.util.List;
-
 import org.apache.ibatis.annotations.Param;
 
 public interface BlogArticleMapper {
