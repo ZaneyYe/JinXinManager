@@ -1,5 +1,6 @@
 package com.jinxin.manager.vo;
 
+import com.jinxin.manager.enumkit.PicType;
 import com.jinxin.manager.po.ImgInfo;
 import com.jinxin.manager.util.DateFormatUtil;
 import org.apache.commons.beanutils.BeanUtils;
@@ -25,12 +26,17 @@ public class ImgInfoVo extends ImgInfo {
 		}
 	}
 
-	public String getCreateTimeStr(){
-		if(getCreatetime() == null){
+	public String getCreateTimeStr() {
+		if (getCreatetime() == null) {
 			return "";
 		}
 		return DateFormatUtil.dateToString(getCreatetime());
 	}
 
-
+	public String getTypeName() {
+		if (getType() == null) {
+			return "";
+		}
+		return PicType.getTypeById(getId()).getName();
+	}
 }

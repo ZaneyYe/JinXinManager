@@ -1,6 +1,8 @@
 package com.jinxin.manager.enumkit;
 
+import java.util.Arrays;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 /**
@@ -10,14 +12,15 @@ import java.util.Map;
 public enum PicType {
 	LUN_PO_PIC(1, "首页轮播图"),
 	PRO_PIC(2, "产品图"),
-	NEWS_PIC(3, "新闻图");
+	NEWS_PIC(3, "新闻图"),
+	BLOG_PIC(4, "博客插图");
 
-	private int i;
-	private String type;
+	private int id;
+	private String name;
 
-	PicType(int i, String type) {
-		this.i = i;
-		this.type = type;
+	PicType(int id, String name) {
+		this.id = id;
+		this.name = name;
 	}
 
 	private static final Map<Integer, PicType> map = new HashMap<>();
@@ -28,12 +31,20 @@ public enum PicType {
 		}
 	}
 
-	public int intValue() {
-		return i;
+	public Integer intValue() {
+		return id;
 	}
 
-	public String getType() {
-		return type;
+	public String getName() {
+		return name;
+	}
+
+	public static PicType getTypeById(Integer id) {
+		return map.get(id) == null ? null : map.get(id);
+	}
+
+	public static List<PicType> getAllEnum() {
+		return Arrays.asList(values());
 	}
 
 

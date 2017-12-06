@@ -49,12 +49,12 @@ public class PicServiceImpl implements PicService {
 
 	@Override
 	@Transactional(rollbackFor = {})
-	public void addPic(String desc, String descPath) {
+	public void addPic(String desc, String descPath, Integer type) {
 		if (StringUtils.isBlank(desc)) {
 			throw new BussinessException("图片描述不能为空");
 		}
 		ImgInfo imgInfo = new ImgInfo();
-		imgInfo.setType(2);
+		imgInfo.setType(type);
 		imgInfo.setRemark(desc);
 		imgInfo.setUrl(descPath);
 		imgInfo.setCreatetime(new Date());

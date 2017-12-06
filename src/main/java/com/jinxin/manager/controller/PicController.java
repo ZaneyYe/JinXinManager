@@ -64,9 +64,10 @@ public class PicController extends BaseController {
 	@RequestMapping(value = "/uploadPic.do", method = RequestMethod.POST)
 	public void uploadPic(HttpServletRequest request,
 						  @RequestParam("desc") String desc,
+						  @RequestParam("picType") String picType,
 						  @RequestParam("upFile") MultipartFile file) {
 		LOGGER.info("pic uploading, {}, {}....", desc, file.getOriginalFilename());
-
+		LOGGER.info("pic uploading,type {}", picType);
 		if (!file.isEmpty()) {
 			//上传文件
 			//文件名
@@ -77,12 +78,14 @@ public class PicController extends BaseController {
 				FileCopyUtils.copy(file.getBytes(), new File(descPath));
 			} catch (IOException e) {
 				e.printStackTrace();
-				LOGGER.error("上传失败,{}::", file.getOriginalFilename());
+				LOGGER.error("upload failed,{}::", file.getOriginalFilename());
 				return;
 			}
 			//上传成功后，保存pic信息
 			String upShowPath = Constants.localShowPath + fileName;
-			picService.addPic(desc, upShowPath);
+			//图片类型
+			Integer type = Integer.valueOf(picType);
+			picService.addPic(desc, upShowPath, type);
 		}
 		return;
 	}

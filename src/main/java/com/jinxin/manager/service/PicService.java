@@ -20,11 +20,11 @@ public interface PicService {
 
 	/**
 	 * 增加图片
-	 *
-	 * @param desc
+	 *  @param desc
 	 * @param descPath
+	 * @param type
 	 */
-	void addPic(String desc, String descPath);
+	void addPic(String desc, String descPath, Integer type);
 
 	/**
 	 * 删除图片

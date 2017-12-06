@@ -34,6 +34,10 @@
                             <label for="inputfile">文件输入</label>
                             <input type="file" id="upFile" name="upFile"/>
                         </div>
+                        <div class="form-group">
+                            <label for="name">文件类型</label>
+                            #simpleCombobox("picType" "PicType" "" "" "" "" "")
+                        </div>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-default" data-dismiss="modal">关闭
@@ -70,7 +74,15 @@
                     border: false,
                     columns:[[
                         {field : 'id', title : '<span class="txtcenter">图片编号</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
-                        {field : "type",title : '<span class="txtcenter">图片类型</span>',  resizable : true, hidden : false, sortable : false, width:$(this).width()*0.1, align: 'left'},
+                        {
+                            field: "typeName",
+                            title: '<span class="txtcenter">图片类型</span>',
+                            resizable: true,
+                            hidden: false,
+                            sortable: false,
+                            width: $(this).width() * 0.1,
+                            align: 'left'
+                        },
                         {
                             field: "remark",
                             title: '<span class="txtcenter">图片描述</span>',
