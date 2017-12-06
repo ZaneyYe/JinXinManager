@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.jinxin.manager.dao.customer.ArticleDao">
+
+    <insert id="insertArticle" parameterType="com.jinxin.manager.po.BlogArticle">
+        INSERT INTO t_my_blog(title,summary,articletype,article,is_secret) VALUES (
+        #{articleBlog.title},
+        #{articleBlog.summary},
+        #{articleBlog.articletype},
+        #{articleBlog.article},
+        #{articleBlog.secret}
+        )
+    </insert>
+
+
+</mapper>

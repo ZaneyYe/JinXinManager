@@ -30,10 +30,10 @@ public class ArticleController {
 
 	@RequestMapping(value = "saveArticle.do", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<StateInfo> saveArticle(HttpServletRequest request, BlogArticle article) {
+	public ResponseEntity<StateInfo> saveArticle(HttpServletRequest request, BlogArticle articleBlog) {
 		ResponseEntity entity = new ResponseEntity();
-		LOGGER.info("begin  saveArticle....");
-		articleService.saveOneArticle(article);
+		LOGGER.info("begin  saveArticle,title:....{}", articleBlog.getTitle());
+		articleService.saveOneArticle(articleBlog);
 		entity.setResult(StateInfo.SUCCESS);
 		return entity;
 	}

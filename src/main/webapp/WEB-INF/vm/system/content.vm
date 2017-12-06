@@ -74,7 +74,7 @@
     var ue = UE.getEditor('container');
 
     function getContent() {
-        return UE.getEditor('container').getContent().valueOf();
+        return UE.getEditor('container').getContent();
     }
     $("#save").click(function () {
         ue.sync();
@@ -85,14 +85,15 @@
         if ($("#isSecret").is(":checked")) {
             secret = 1;
         }
-        var articType = $("#articType").select(true).val();
+        var articleType = $("#articType").select(true).val();
         var data = {
             title: title,
             summary: summary,
             secret: secret,
             article: content,
-            type: articType
+            articleType: articleType
         }
+        console.log(content);
         console.log(data);
         $.ajax({
             url: "$!basePath/article/saveArticle.do",

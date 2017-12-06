@@ -13,7 +13,7 @@ public interface ArticleService {
 	/**
 	 * 保存文章
 	 *
-	 * @param article
+	 * @param articleBlog
 	 */
-	void saveOneArticle(BlogArticle article);
+	void saveOneArticle(BlogArticle articleBlog);
 }

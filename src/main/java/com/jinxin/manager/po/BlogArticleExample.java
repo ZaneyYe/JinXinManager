@@ -395,63 +395,133 @@ public class BlogArticleExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeIsNull() {
-			addCriterion("type is null");
+		public Criteria andArticleTypeIsNull() {
+			addCriterion("articletype is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeIsNotNull() {
-			addCriterion("type is not null");
+		public Criteria andArticleTypeIsNotNull() {
+			addCriterion("articletype is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeEqualTo(Integer value) {
-			addCriterion("type =", value, "type");
+		public Criteria andArticleTypeEqualTo(Integer value) {
+			addCriterion("articletype =", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeNotEqualTo(Integer value) {
-			addCriterion("type <>", value, "type");
+		public Criteria andArticleTypeNotEqualTo(Integer value) {
+			addCriterion("articletype <>", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeGreaterThan(Integer value) {
-			addCriterion("type >", value, "type");
+		public Criteria andArticleTypeGreaterThan(Integer value) {
+			addCriterion("articletype >", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeGreaterThanOrEqualTo(Integer value) {
-			addCriterion("type >=", value, "type");
+		public Criteria andArticleTypeGreaterThanOrEqualTo(Integer value) {
+			addCriterion("articletype >=", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeLessThan(Integer value) {
-			addCriterion("type <", value, "type");
+		public Criteria andArticleTypeLessThan(Integer value) {
+			addCriterion("articletype <", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeLessThanOrEqualTo(Integer value) {
-			addCriterion("type <=", value, "type");
+		public Criteria andArticleTypeLessThanOrEqualTo(Integer value) {
+			addCriterion("articletype <=", value, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeIn(List<Integer> values) {
-			addCriterion("type in", values, "type");
+		public Criteria andArticleTypeIn(List<Integer> values) {
+			addCriterion("articletype in", values, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeNotIn(List<Integer> values) {
-			addCriterion("type not in", values, "type");
+		public Criteria andArticleTypeNotIn(List<Integer> values) {
+			addCriterion("articletype not in", values, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeBetween(Integer value1, Integer value2) {
-			addCriterion("type between", value1, value2, "type");
+		public Criteria andArticleTypeBetween(Integer value1, Integer value2) {
+			addCriterion("articletype between", value1, value2, "articleType");
 			return (Criteria) this;
 		}
 
-		public Criteria andTypeNotBetween(Integer value1, Integer value2) {
-			addCriterion("type not between", value1, value2, "type");
+		public Criteria andArticleTypeNotBetween(Integer value1, Integer value2) {
+			addCriterion("articletype not between", value1, value2, "articleType");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleIsNull() {
+			addCriterion("article is null");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleIsNotNull() {
+			addCriterion("article is not null");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleEqualTo(String value) {
+			addCriterion("article =", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleNotEqualTo(String value) {
+			addCriterion("article <>", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleGreaterThan(String value) {
+			addCriterion("article >", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleGreaterThanOrEqualTo(String value) {
+			addCriterion("article >=", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleLessThan(String value) {
+			addCriterion("article <", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleLessThanOrEqualTo(String value) {
+			addCriterion("article <=", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleLike(String value) {
+			addCriterion("article like", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleNotLike(String value) {
+			addCriterion("article not like", value, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleIn(List<String> values) {
+			addCriterion("article in", values, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleNotIn(List<String> values) {
+			addCriterion("article not in", values, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleBetween(String value1, String value2) {
+			addCriterion("article between", value1, value2, "article");
+			return (Criteria) this;
+		}
+
+		public Criteria andArticleNotBetween(String value1, String value2) {
+			addCriterion("article not between", value1, value2, "article");
 			return (Criteria) this;
 		}
 
