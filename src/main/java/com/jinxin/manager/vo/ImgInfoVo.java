@@ -37,6 +37,7 @@ public class ImgInfoVo extends ImgInfo {
 		if (getType() == null) {
 			return "";
 		}
-		return PicType.getTypeById(getId()).getName();
+		return PicType.getTypeById(getType()).getName();
 	}
+
 }

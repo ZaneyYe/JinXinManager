@@ -28,26 +28,53 @@ public class BaseController {
 		return "login";
 	}
 
-
+	/**
+	 * 主页
+	 *
+	 * @return
+	 */
 	@RequestMapping("/admin.do")
 	public String toIndexPage(){
 		return "system/admin";
 	}
 
-
+	/**
+	 * 图片管理
+	 * @return
+	 */
 	@RequestMapping("/img_manage.do")
-    public String toImageInfoPage(){
+	public String toImageInfoPage(){
 		return "system/img";
 	}
 
+	/**
+	 * 用户管理
+	 * @return
+	 */
 	@RequestMapping("/toManager.do")
 	public String toManager() {
 		return "system/manager";
 	}
 
+	/**
+	 * 拙笔一篇
+	 * @return
+	 */
 	@RequestMapping("/content_manage.do")
 	public String toContentManager() {
 		return "system/content";
 	}
+
+	/**
+	 * 文章列表
+	 *
+	 * @return
+	 */
+	@RequestMapping("/article_list.do")
+	public String toContentList() {
+		return "system/content_list";
+	}
+
+
 
 }

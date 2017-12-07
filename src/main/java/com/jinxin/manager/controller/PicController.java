@@ -1,6 +1,7 @@
 package com.jinxin.manager.controller;
 
 import com.jinxin.manager.enumkit.Constants;
+import com.jinxin.manager.enumkit.PicType;
 import com.jinxin.manager.enumkit.StateInfo;
 import com.jinxin.manager.service.PicService;
 import com.jinxin.manager.vo.ImgInfoVo;
@@ -128,6 +129,11 @@ public class PicController extends BaseController {
 			}
 			OutputStream out = new FileOutputStream(f);
 			FileCopyUtils.copy(upfile.getInputStream(), out);
+			//图片路径
+			String desc = "博客插图";
+			Integer type = PicType.BLOG_PIC.intValue();
+			picService.addPic(desc, visitUrl, type);
+
 			params.put("state", "SUCCESS");
 			params.put("url", visitUrl);
 			params.put("size", upfile.getSize());
