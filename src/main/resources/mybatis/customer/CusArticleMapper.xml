@@ -12,5 +12,17 @@
         )
     </insert>
 
+    <select id="queryTotalArticle" resultType="java.lang.Integer">
+        SELECT COUNT(1) FROM t_my_blog
+    </select>
+
+    <select id="queryPageArticles" resultType="com.jinxin.manager.po.BlogArticle">
+        SELECT * FROM t_my_blog
+        <include refid="setPage"></include>
+    </select>
+
+    <sql id="setPage">
+        limit #{start},#{rows}
+    </sql>
 
 </mapper>

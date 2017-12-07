@@ -3,7 +3,11 @@ package com.jinxin.manager.service;
 import com.jinxin.manager.dao.customer.ArticleDao;
 import com.jinxin.manager.po.BlogArticle;
 import com.jinxin.manager.util.ConvertUtils;
+import com.jinxin.manager.vo.BlogArticleVo;
 import com.jinxin.manager.vo.BussinessException;
+import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
+import org.apache.commons.collections.CollectionUtils;
 import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -13,6 +17,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by yezhangyuan on 2017-12-05.
@@ -41,6 +46,19 @@ public class ArticleServiceImpl implements ArticleService {
 		articleBlog.setCreattime(new Date());
 		articleBlog.setUpdatetime(new Date());
 		articleDao.insertSelective(articleBlog);
+	}
+
+	@Override
+	public PageInfo<List<BlogArticleVo>> listArticles(RequestPage page) {
+		PageInfo<List<BlogArticleVo>> pageInfo = new PageInfo<>();
+		int total = articleDao.queryTotalArticle();
+		List<BlogArticle> blogArticles = articleDao.queryPageArticles(page.getStart(), page.getRows());
+		if (CollectionUtils.isNotEmpty(blogArticles)) {
+			List<BlogArticleVo> blogArticleVos = ConvertUtils.copyPropertiesList(BlogArticleVo.class, blogArticles);
+			pageInfo.setRows(blogArticleVos);
+		}
+		pageInfo.setTotal(total);
+		return pageInfo;
 	}
 
 

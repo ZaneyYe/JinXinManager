@@ -1,6 +1,11 @@
 package com.jinxin.manager.service;
 
 import com.jinxin.manager.po.BlogArticle;
+import com.jinxin.manager.vo.BlogArticleVo;
+import com.jinxin.manager.vo.PageInfo;
+import com.jinxin.manager.vo.RequestPage;
+
+import java.util.List;
 
 /**
  * Created by yezhangyuan on 2017-12-05.
@@ -16,4 +21,12 @@ public interface ArticleService {
 	 * @param articleBlog
 	 */
 	void saveOneArticle(BlogArticle articleBlog);
+
+	/**
+	 * 分页查询文章
+	 *
+	 * @param page
+	 * @return
+	 */
+	PageInfo<List<BlogArticleVo>> listArticles(RequestPage page);
 }

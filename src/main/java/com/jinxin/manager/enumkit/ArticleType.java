@@ -42,4 +42,9 @@ public enum ArticleType {
 		return Arrays.asList(values());
 	}
 
+	public static ArticleType getTypeByid(Integer id) {
+		return map.get(id) == null ? null : map.get(id);
+	}
+
+
 }
