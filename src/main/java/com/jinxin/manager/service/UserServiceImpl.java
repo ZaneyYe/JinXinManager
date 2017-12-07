@@ -53,12 +53,12 @@ public class UserServiceImpl implements UserService {
 	@Override
 	public void delUser(Integer userId) {
 		if (userId == null) {
-			LOGGER.info("del user,user is null");
+			LOGGER.warn("del user,user is null");
 			return;
 		}
 		User user = userDao.selectByPrimaryKey(userId);
 		if (user == null) {
-			LOGGER.info("db user is null");
+			LOGGER.warn("db user is null");
 			return;
 		}
 		try {

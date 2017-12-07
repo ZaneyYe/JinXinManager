@@ -29,4 +29,12 @@ public interface ArticleService {
 	 * @return
 	 */
 	PageInfo<List<BlogArticleVo>> listArticles(RequestPage page);
+
+	/**
+	 * 删除文章
+	 *
+	 * @param articleId
+	 */
+	void delArticle(Integer articleId);
+
 }

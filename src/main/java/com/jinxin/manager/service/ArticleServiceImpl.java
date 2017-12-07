@@ -61,5 +61,24 @@ public class ArticleServiceImpl implements ArticleService {
 		return pageInfo;
 	}
 
+	@Override
+	public void delArticle(Integer articleId) {
+		if (articleId == null) {
+			LOGGER.warn("del article, article id is null");
+			return;
+		}
+		BlogArticle article = articleDao.selectByPrimaryKey(articleId);
+		if (article == null) {
+			LOGGER.warn("db article id:{}  is null", articleId);
+			return;
+		}
+		try {
+			articleDao.deleteByPrimaryKey(articleId);
+		} catch (Exception e) {
+			throw new BussinessException("del article occur error");
+		}
+	}
+
+
 
 }

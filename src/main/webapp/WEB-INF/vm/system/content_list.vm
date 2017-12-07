@@ -18,16 +18,14 @@
 
 <script type="text/javascript">
     $(function () {
-        alert("123");
-        $("#articleTt").datagrid({
-                    url: "$!basePath/pic/list.do",
+                $("#articleTt").datagrid({
+                    url: "$!basePath/article/list.do",
                     fitColumns: true,
                     striped: true,
                     pagination: true,
                     rownumbers: true,
                     pageSize: 50,
                     pageNumber: 1,
-                    toolbar: toolbar,
                     singleSelect: true,
                     pageList: [50, 100, 150, 200, 250],
                     loadMsg: '数据正在加载中...',
@@ -41,16 +39,16 @@
                             sortable: false,
                             width: $(this).width() * 0.1,
                             align: 'left'
-                        }/*,
+                        },
                         {
                             field: "title",
-                            title: '<span class="txtcenter">标题</span>',
+                            title: '<span class="txtcenter">文章标题</span>',
                             resizable: true,
                             hidden: false,
                             sortable: false,
                             width: $(this).width() * 0.1,
                             align: 'left'
-                        }*//*,
+                        },
                         {
                             field: "articleTypeName",
                             title: '<span class="txtcenter">文章类型</span>',
@@ -59,7 +57,7 @@
                             sortable: false,
                             width: $(this).width() * 0.1,
                             align: 'left'
-                        }*//*,
+                        },
                         {
                             field: "creatTimeStr",
                             title: '<span class="txtcenter">创建时间</span>',
@@ -68,7 +66,7 @@
                             sortable: false,
                             width: $(this).width() * 0.1,
                             align: 'left'
-                        }*//*,
+                        },
                         {
                             field: ' ',
                             title: '<span class="txtcenter">操作</span>',
@@ -82,39 +80,41 @@
                                 var d2 = "<button class='txtcenter' id='delBtn' onclick='toDelArticle(" + row.id + ")'>删除</button>";
                                 return d1 + "&nbsp;&nbsp;" + d2;
                             }
-                        }*/
+                        }
                     ]]
-                }
-        )
-    })
+                })
 
-    /*  $.extend($.messager.defaults, {
-          ok: "确定",
-          cancel: "取消"
-      });
-  */
-    ##    function toDelArticle(articleId) {
-    ##        var id = articleId;
-    ##        $.messager.confirm("确认", "您确认删除这张图片吗", function (rs) {
-    ##            if (rs) {
-    ##                $.ajax({
-    ##                    url: "$!basePath/article/delArticle.do",
-    ##                    type: "POST",
-    ##                    data: {"picId": articleId},
-    ##                    dataType: "JSON",
-    ##                    success: function (data) {
-    ##                        if (data.code == 1) {
-    ##                            $("#articleTt").datagrid("reload");
-    ##                        } else {
-    ##                            $.messager.alert("警告", "删除失败");
-    ##                        }
-    ##                    },
-    ##                    error: function (e) {
-    ##                        $.messager.alert("警告", "删除失败");
-    ##                    }
-    ##                })
-    ##            }
-    ##        })
-    ##    }
+
+            }
+    )
+
+    $.extend($.messager.defaults, {
+        ok: "确定",
+        cancel: "取消"
+    });
+
+    function toDelArticle(articleId) {
+        var id = articleId;
+        $.messager.confirm("确认", "您确认删除这篇文章吗", function (rs) {
+            if (rs) {
+                $.ajax({
+                    url: "$!basePath/article/delArticle.do",
+                    type: "POST",
+                    data: {"articleId": articleId},
+                    dataType: "JSON",
+                    success: function (data) {
+                        if (data.code == 1) {
+                            $("#articleTt").datagrid("reload");
+                        } else {
+                            $.messager.alert("警告", "删除失败");
+                        }
+                    },
+                    error: function (e) {
+                        $.messager.alert("警告", "删除失败");
+                    }
+                })
+            }
+        })
+    }
 
 </script>
