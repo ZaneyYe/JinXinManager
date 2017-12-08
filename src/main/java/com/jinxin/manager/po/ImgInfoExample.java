@@ -458,12 +458,12 @@ public class ImgInfoExample {
 		public Criteria andIsDelIsNull() {
 			addCriterion("is_del is null");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andIsDelIsNotNull() {
 			addCriterion("is_del is not null");
 			return (Criteria) this;
-        }
+		}
 
 		public Criteria andIsDelEqualTo(Boolean value) {
 			addCriterion("is_del =", value, "isDel");

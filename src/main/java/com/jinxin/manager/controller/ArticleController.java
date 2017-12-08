@@ -4,6 +4,7 @@ import com.jinxin.manager.enumkit.StateInfo;
 import com.jinxin.manager.po.BlogArticle;
 import com.jinxin.manager.service.ArticleService;
 import com.jinxin.manager.util.ConvertUtils;
+import com.jinxin.manager.util.DateFormatUtil;
 import com.jinxin.manager.vo.BlogArticleVo;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
@@ -74,6 +75,10 @@ public class ArticleController {
 		BlogArticleVo blogArticleVo = articleService.queryArticle(Integer.valueOf(articleId));
 		if (blogArticleVo != null) {
 			String showArticle = ConvertUtils.convertHtml(blogArticleVo.getArticle());
+			String localCreateTime = DateFormatUtil.dateToString(blogArticleVo.getCreattime(), DateFormatUtil.DEFAULT_SHOW_ART_TIME);
+			dataMap.put("createTimeShow", localCreateTime);
+			dataMap.put("title", blogArticleVo.getTitle());
+			dataMap.put("summary", blogArticleVo.getSummary());
 			dataMap.put("showArticle", showArticle);
 		}
 		return "system/prev_article";

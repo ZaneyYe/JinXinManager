@@ -181,7 +181,7 @@ public class ImgInfo {
 	 * @param isDel the value for t_img_info.is_del
 	 *
 	 * @mbg.generated
-     */
+	 */
 	public void setIsDel(Boolean isDel) {
 		this.isDel = isDel;
 	}

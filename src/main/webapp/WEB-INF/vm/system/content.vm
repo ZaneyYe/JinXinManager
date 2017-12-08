@@ -31,11 +31,6 @@
                 <script id="container" name="content" type="text/plain">
                 </script>
             </div>
-            <div class="form-group">
-                <!-- 加载编辑器的容器 -->
-                <script id="container" name="content" type="text/plain">
-                </script>
-            </div>
             <div class="checkbox">
                 <label>
                     <input type="checkbox" id="isSecret"/> 保密
@@ -67,9 +62,9 @@
     UE.Editor.prototype.getActionUrl = function (action) {
         if (action == 'uploadimageUE' || action == "uploadfile") {
             return "$!basePath/pic/ue/uploadPic.do";
-            } else {
-                return this._bkGetActionUrl.call(this, action);
-            }
+        } else {
+            return this._bkGetActionUrl.call(this, action);
+        }
     };
     var ue = UE.getEditor('container');
 
@@ -103,16 +98,12 @@
             cache: false,
             success: function (data) {
                 if (data.code == 1) {
-//                    $.messager.alert
+                    alert("保存成功");
+                } else {
+                    alert("保存失败");
                 }
             }
         })
     })
-</script>
-<!-- 提交草稿 -->
-<script type="text/javascript">
-
-    //    var content = ue.getContent();
-
 </script>
 

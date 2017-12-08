@@ -23,7 +23,7 @@ public class DateFormatUtil {
 
 	public static final String DEFAULT_DATE_VIEW_DETAIL = "yyyy-MM-dd hh:mm:ss";
 
-
+	public static final String DEFAULT_SHOW_ART_TIME = "MMM d,yyyy";
 
 	/**
 	 * date2String 日期转字符串
@@ -66,7 +66,6 @@ public class DateFormatUtil {
 	public static Date strConvertDate(String dateStr){
 		return strConvertDate(dateStr,null);
 	}
-
 
 	public static void main(String[] args){
 		String s = dateToString(new Date());

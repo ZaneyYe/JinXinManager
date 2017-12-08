@@ -187,7 +187,8 @@
         <!--&lt;!&ndash;<columnOverride column="is_del" property="valid" javaType="java.lang.Integer" jdbcType="tinyint" />&ndash;&gt;-->
         <!--</table>-->
 
-        <table tableName="t_my_blog" domainObjectName="BlogArticle">
+        <table tableName="t_img_info"
+               domainObjectName="ImgInfo">
 
             <!-- 参考 javaModelGenerator 的 constructorBased属性-->
             <property name="constructorBased" value="false"/>
