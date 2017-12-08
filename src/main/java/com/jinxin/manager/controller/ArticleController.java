@@ -3,10 +3,13 @@ package com.jinxin.manager.controller;
 import com.jinxin.manager.enumkit.StateInfo;
 import com.jinxin.manager.po.BlogArticle;
 import com.jinxin.manager.service.ArticleService;
+import com.jinxin.manager.util.ConvertUtils;
 import com.jinxin.manager.vo.BlogArticleVo;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.ResponseEntity;
+import org.apache.commons.lang.StringUtils;
+import org.apache.ibatis.annotations.Param;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,6 +20,7 @@ import org.springframework.web.bind.annotation.ResponseBody;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by yzy on 2017/12/5
@@ -58,6 +62,21 @@ public class ArticleController {
 		articleService.delArticle(articleId);
 		entity.setResult(StateInfo.SUCCESS);
 		return entity;
+	}
+
+	@RequestMapping(value = "/queryArticle", method = RequestMethod.GET)
+	public String queryArticle(@Param("articleId") String articleId, Map<String, Object> dataMap) {
+		LOGGER.info("query article, id:{}", articleId);
+		if (StringUtils.isBlank(articleId)) {
+			LOGGER.warn("query article, articleId is null");
+			return "system/prev_article";
+		}
+		BlogArticleVo blogArticleVo = articleService.queryArticle(Integer.valueOf(articleId));
+		if (blogArticleVo != null) {
+			String showArticle = ConvertUtils.convertHtml(blogArticleVo.getArticle());
+			dataMap.put("showArticle", showArticle);
+		}
+		return "system/prev_article";
 	}
 
 

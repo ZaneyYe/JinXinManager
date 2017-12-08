@@ -37,4 +37,12 @@ public interface ArticleService {
 	 */
 	void delArticle(Integer articleId);
 
+	/**
+	 * 根据文章id 查询文章
+	 *
+	 * @param articleId
+	 * @return
+	 */
+	BlogArticleVo queryArticle(Integer articleId);
+
 }

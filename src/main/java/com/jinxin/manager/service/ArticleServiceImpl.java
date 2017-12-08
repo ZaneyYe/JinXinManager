@@ -79,6 +79,13 @@ public class ArticleServiceImpl implements ArticleService {
 		}
 	}
 
+	@Override
+	public BlogArticleVo queryArticle(Integer articleId) {
+		BlogArticle blogArticle = articleDao.selectByPrimaryKey(Integer.valueOf(articleId));
+		BlogArticleVo blogArticleVo = ConvertUtils.convertObject(blogArticle, BlogArticleVo.class);
+		return blogArticleVo;
+	}
+
 
 
 }
