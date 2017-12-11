@@ -12,4 +12,6 @@ public interface Constants {
 
 	String localUploadPath = "E:\\JinXin\\pics\\";
 
+	String REDIS_ARTICLE_KEY = "article_detail_";
+
 }

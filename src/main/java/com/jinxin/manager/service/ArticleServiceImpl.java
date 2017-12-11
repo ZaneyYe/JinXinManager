@@ -1,7 +1,11 @@
 package com.jinxin.manager.service;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.jinxin.manager.dao.customer.ArticleDao;
+import com.jinxin.manager.enumkit.Constants;
 import com.jinxin.manager.po.BlogArticle;
+import com.jinxin.manager.proxy.JedisProxy;
 import com.jinxin.manager.util.ConvertUtils;
 import com.jinxin.manager.vo.BlogArticleVo;
 import com.jinxin.manager.vo.BussinessException;
@@ -16,6 +20,7 @@ import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
+import java.io.IOException;
 import java.util.Date;
 import java.util.List;
 
@@ -30,7 +35,12 @@ public class ArticleServiceImpl implements ArticleService {
 	private static final Logger LOGGER = LoggerFactory.getLogger(ArticleServiceImpl.class);
 
 	@Autowired
+	private JedisProxy jedisProxy;
+
+	@Autowired
 	private ArticleDao articleDao;
+
+	private static ObjectMapper objectMapper = new ObjectMapper();
 
 	@Override
 	@Transactional(rollbackFor = Exception.class, propagation = Propagation.REQUIRED)
@@ -81,11 +91,26 @@ public class ArticleServiceImpl implements ArticleService {
 
 	@Override
 	public BlogArticleVo queryArticle(Integer articleId) {
-		BlogArticle blogArticle = articleDao.selectByPrimaryKey(Integer.valueOf(articleId));
+		BlogArticle blogArticle = null;
+		String article = jedisProxy.get(Constants.REDIS_ARTICLE_KEY + articleId);
+		if (StringUtils.isNotBlank(article)) {
+			try {
+				blogArticle = objectMapper.readValue(article, BlogArticle.class);
+			} catch (IOException e) {
+				LOGGER.error("object mapper read occur error", e);
+			}
+		} else {
+			blogArticle = articleDao.selectByPrimaryKey(Integer.valueOf(articleId));
+			try {
+				String jsonBlog = objectMapper.writeValueAsString(blogArticle);
+				jedisProxy.set(Constants.REDIS_ARTICLE_KEY + articleId, jsonBlog);
+			} catch (JsonProcessingException e) {
+				LOGGER.error("object mapper write occur error", e);
+			}
+		}
 		BlogArticleVo blogArticleVo = ConvertUtils.convertObject(blogArticle, BlogArticleVo.class);
 		return blogArticleVo;
 	}
-
 
 
 }
