@@ -14,8 +14,6 @@
 
     <import resource="spring-mybatis.xml"/>
 
-    <!--<context:property-placeholder location="classpath:config/company/conf.properties" />-->
-
     <context:annotation-config/>
 
     <task:annotation-driven/>
@@ -23,6 +21,7 @@
     <bean class="org.springframework.jdbc.datasource.DataSourceTransactionManager" id="transactionManager">
         <property name="dataSource" ref="dataSource"/>
     </bean>
+
     <!-- 注解方式配置事物 -->
     <tx:annotation-driven proxy-target-class="true" transaction-manager="transactionManager"/>
 
@@ -38,6 +37,6 @@
     </bean>
 
     <context:component-scan base-package="com.jinxin.manager.service"/>
-
+    <context:component-scan base-package="com.jinxin.manager.config"/>
 
 </beans>
