@@ -2,11 +2,14 @@ package com.jinxin.manager.service;
 
 import com.jinxin.manager.dao.customer.UserDao;
 import com.jinxin.manager.po.User;
+import com.jinxin.manager.po.UserExample;
 import com.jinxin.manager.util.ConvertUtils;
 import com.jinxin.manager.vo.BussinessException;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.UserVo;
+import org.apache.commons.collections.CollectionUtils;
+import org.apache.commons.lang.StringUtils;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -68,4 +71,20 @@ public class UserServiceImpl implements UserService {
 		}
 		return;
 	}
+
+	@Override
+	public User queryUserByName(String name) {
+		if (StringUtils.isBlank(name)) {
+			LOGGER.info("query user by name, name is blank");
+			return null;
+		}
+		UserExample example = new UserExample();
+		example.createCriteria().andNameEqualTo(name);
+		List<User> users = userDao.selectByExample(example);
+		if (CollectionUtils.isNotEmpty(users)) {
+			return users.get(0);
+		}
+		return null;
+	}
+
 }

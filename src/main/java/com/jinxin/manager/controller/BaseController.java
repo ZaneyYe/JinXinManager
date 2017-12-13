@@ -76,5 +76,10 @@ public class BaseController {
 	}
 
 
+	@RequestMapping("/unauthorized")
+	public String toUnauthorizedPage() {
+		return "system/unauthorized";
+	}
+
 
 }

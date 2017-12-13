@@ -1,5 +1,6 @@
 package com.jinxin.manager.service;
 
+import com.jinxin.manager.po.User;
 import com.jinxin.manager.vo.PageInfo;
 import com.jinxin.manager.vo.RequestPage;
 import com.jinxin.manager.vo.UserVo;
@@ -30,4 +31,12 @@ public interface UserService {
 	 * @param userId
 	 */
 	void delUser(Integer userId);
+
+	/**
+	 * 根据用户名查询用户
+	 *
+	 * @param name
+	 * @return
+	 */
+	User queryUserByName(String name);
 }

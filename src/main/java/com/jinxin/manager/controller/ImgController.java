@@ -29,6 +29,7 @@ public class ImgController {
 		try {
 			ServletOutputStream out = response.getOutputStream();
 			output.writeTo(out);
+
 		} catch (IOException e) {
 			e.printStackTrace();
 		}
