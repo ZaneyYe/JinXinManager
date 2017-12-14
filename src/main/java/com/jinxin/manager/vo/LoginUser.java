@@ -11,6 +11,8 @@ public class LoginUser {
 	private String password;
 	//盐
 	private String salt;
+	//验证码
+	private String code;
 
 	public String getName() {
 		return name;
@@ -36,4 +38,11 @@ public class LoginUser {
 		this.salt = salt;
 	}
 
+	public String getCode() {
+		return code;
+	}
+
+	public void setCode(String code) {
+		this.code = code;
+	}
 }

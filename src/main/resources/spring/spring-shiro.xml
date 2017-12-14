@@ -31,6 +31,7 @@
                 /admin.do=anon
                 /jsp/admin.jsp = roles[admin]
                 /**=anon -->
+                /**=anon
             </value>
         </property>
     </bean>

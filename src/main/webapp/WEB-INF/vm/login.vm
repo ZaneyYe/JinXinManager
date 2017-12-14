@@ -108,10 +108,11 @@
 				var password = $("#password").val();
 //				var code = "qq313596790fh"+loginname+",fh,"+password+"QQ978336446fh"+",fh,"+$("#code").val();
 				var pwd = $.md5(password);
+                var code = $("#code").val();
 				$.ajax({
 					type: "POST",
 					url: '$!basePath/sys/user_login.do',
-			    	data: {name:loginname,password:pwd,tm:new Date().getTime()},
+                    data: {name: loginname, password: password, code: code, tm: new Date().getTime()},
 					dataType:'json',
 					cache: false,
 					success: function(data){
@@ -125,8 +126,9 @@
 								bg : '#FF5080',
 								time : 15
 							});
-							$("#loginname").focus();
-						}else if("codeerror" == data.result){
+                            $("#loginname").focus();
+                            changeCode();
+                        } else if ("codeerror" == data.result) {
 							$("#code").tips({
 								side : 1,
 								msg : "验证码输入有误",

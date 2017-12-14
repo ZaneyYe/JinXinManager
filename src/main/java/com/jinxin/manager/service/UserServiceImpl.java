@@ -37,7 +37,7 @@ public class UserServiceImpl implements UserService {
 	public void addUser(UserVo userVo) {
 		userVo.setCreatetime(new Date());
 		userVo.setUpdatetime(new Date());
-		userDao.insert(userVo);
+		userDao.insertSelective(userVo);
 	}
 
 	@Override
