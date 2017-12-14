@@ -15,11 +15,6 @@
             </div>
             <div class="form-group" style="width: 20%">
                 <label>文章类型</label>
-            #*<input type="text" class="form-control" id="articType" placeholder="Enter ">*#
-            #*<select class="form-control">
-                <option>1</option>
-            </select>*#
-            ##simpleCombobox("saleOrderDataState" "com.manyi.iw.contract.soa.api.model.dict.enums.SaleOrderDataState" "" "" "全部" "" "editable:false,panelHeight:'auto'")
                 #simpleCombobox("articType" "ArticleType" "" "" "" "" "")
             </div>
             <div class="form-group">
