@@ -8,7 +8,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
 <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>金鑫生态农业管理系统</title>
+    <title>Demo后台管理系统</title>
     <!-- Tell the browser to be responsive to screen width -->
     <meta content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" name="viewport">
     <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
@@ -43,8 +43,8 @@ scratch. This page gets rid of all links and provides the needed markup only.
 
         <!-- Logo -->
         <a href="$!basePath/admin.do" class="logo">
-            <span class="logo-mini"><b>J</b>X</span>
-            <span class="logo-lg"><b>JinXIn</b>Admin</span>
+            <span class="logo-mini"><b>Z</b>Y</span>
+            <span class="logo-lg"><b>YZY</b>Admin</span>
         </a>
 
         <!-- Header Navbar -->
@@ -249,7 +249,7 @@ scratch. This page gets rid of all links and provides the needed markup only.
         <!-- Content Header (Page header) -->
         <section class="content-header">
             <h1>
-                 金鑫生态农业管理系统
+                Demo后台管理系统
                 <small>2017</small>
             </h1>
             <ol class="breadcrumb">
