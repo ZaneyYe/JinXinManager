@@ -304,6 +304,17 @@
             -->
         </table>
 
+        <table tableName="t_my_blog" domainObjectName="BlogArticle">
+            <property name="constructorBased" value="false"/>
+            <property name="ignoreQualifiersAtRuntime" value="false"/>
+            <property name="immutable" value="false"/>
+            <property name="modelOnly" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="article" property="article" javaType="java.lang.String" jdbcType="VARCHAR"/>
+            <columnOverride column="articletype" property="articleType" javaType="java.lang.Integer"
+                            jdbcType="INTEGER"/>
+        </table>
+
     </context>
 
 </generatorConfiguration>

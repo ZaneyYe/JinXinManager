@@ -525,123 +525,123 @@ public class BlogArticleExample {
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportIsNull() {
+		public Criteria andIsSupportIsNull() {
 			addCriterion("is_support is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportIsNotNull() {
+		public Criteria andIsSupportIsNotNull() {
 			addCriterion("is_support is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportEqualTo(Integer value) {
-			addCriterion("is_support =", value, "support");
+		public Criteria andIsSupportEqualTo(Integer value) {
+			addCriterion("is_support =", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportNotEqualTo(Integer value) {
-			addCriterion("is_support <>", value, "support");
+		public Criteria andIsSupportNotEqualTo(Integer value) {
+			addCriterion("is_support <>", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportGreaterThan(Integer value) {
-			addCriterion("is_support >", value, "support");
+		public Criteria andIsSupportGreaterThan(Integer value) {
+			addCriterion("is_support >", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportGreaterThanOrEqualTo(Integer value) {
-			addCriterion("is_support >=", value, "support");
+		public Criteria andIsSupportGreaterThanOrEqualTo(Integer value) {
+			addCriterion("is_support >=", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportLessThan(Integer value) {
-			addCriterion("is_support <", value, "support");
+		public Criteria andIsSupportLessThan(Integer value) {
+			addCriterion("is_support <", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportLessThanOrEqualTo(Integer value) {
-			addCriterion("is_support <=", value, "support");
+		public Criteria andIsSupportLessThanOrEqualTo(Integer value) {
+			addCriterion("is_support <=", value, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportIn(List<Integer> values) {
-			addCriterion("is_support in", values, "support");
+		public Criteria andIsSupportIn(List<Integer> values) {
+			addCriterion("is_support in", values, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportNotIn(List<Integer> values) {
-			addCriterion("is_support not in", values, "support");
+		public Criteria andIsSupportNotIn(List<Integer> values) {
+			addCriterion("is_support not in", values, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportBetween(Integer value1, Integer value2) {
-			addCriterion("is_support between", value1, value2, "support");
+		public Criteria andIsSupportBetween(Integer value1, Integer value2) {
+			addCriterion("is_support between", value1, value2, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSupportNotBetween(Integer value1, Integer value2) {
-			addCriterion("is_support not between", value1, value2, "support");
+		public Criteria andIsSupportNotBetween(Integer value1, Integer value2) {
+			addCriterion("is_support not between", value1, value2, "isSupport");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretIsNull() {
+		public Criteria andIsSecretIsNull() {
 			addCriterion("is_secret is null");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretIsNotNull() {
+		public Criteria andIsSecretIsNotNull() {
 			addCriterion("is_secret is not null");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretEqualTo(Integer value) {
-			addCriterion("is_secret =", value, "secret");
+		public Criteria andIsSecretEqualTo(Integer value) {
+			addCriterion("is_secret =", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretNotEqualTo(Integer value) {
-			addCriterion("is_secret <>", value, "secret");
+		public Criteria andIsSecretNotEqualTo(Integer value) {
+			addCriterion("is_secret <>", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretGreaterThan(Integer value) {
-			addCriterion("is_secret >", value, "secret");
+		public Criteria andIsSecretGreaterThan(Integer value) {
+			addCriterion("is_secret >", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretGreaterThanOrEqualTo(Integer value) {
-			addCriterion("is_secret >=", value, "secret");
+		public Criteria andIsSecretGreaterThanOrEqualTo(Integer value) {
+			addCriterion("is_secret >=", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretLessThan(Integer value) {
-			addCriterion("is_secret <", value, "secret");
+		public Criteria andIsSecretLessThan(Integer value) {
+			addCriterion("is_secret <", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretLessThanOrEqualTo(Integer value) {
-			addCriterion("is_secret <=", value, "secret");
+		public Criteria andIsSecretLessThanOrEqualTo(Integer value) {
+			addCriterion("is_secret <=", value, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretIn(List<Integer> values) {
-			addCriterion("is_secret in", values, "secret");
+		public Criteria andIsSecretIn(List<Integer> values) {
+			addCriterion("is_secret in", values, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretNotIn(List<Integer> values) {
-			addCriterion("is_secret not in", values, "secret");
+		public Criteria andIsSecretNotIn(List<Integer> values) {
+			addCriterion("is_secret not in", values, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretBetween(Integer value1, Integer value2) {
-			addCriterion("is_secret between", value1, value2, "secret");
+		public Criteria andIsSecretBetween(Integer value1, Integer value2) {
+			addCriterion("is_secret between", value1, value2, "isSecret");
 			return (Criteria) this;
 		}
 
-		public Criteria andSecretNotBetween(Integer value1, Integer value2) {
-			addCriterion("is_secret not between", value1, value2, "secret");
+		public Criteria andIsSecretNotBetween(Integer value1, Integer value2) {
+			addCriterion("is_secret not between", value1, value2, "isSecret");
 			return (Criteria) this;
 		}
 
