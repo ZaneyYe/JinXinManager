@@ -5,7 +5,7 @@
         <h3 class="box-title">文章管理</h3>
     </div>
     <!-- /.box-header -->
-    <div data-options="region:'center',fit:true,split:false,border:false">
+    <div data-options="region:'center',fit:true,split:false,border:true">
         <table id="articleTt" style="width:100%"></table>
     </div>
 </div>

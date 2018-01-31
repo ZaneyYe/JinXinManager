@@ -5,7 +5,19 @@
 ##        <a href="$!basePath/content_manage.do"><i class="fa fa-link"></i> <span>网站内容管理</span></a>
 ##    </li>
     <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>网站内容管理</span>
+        <a href="#"><i class="fa fa-link"></i> <span>内容管理</span>
+            <span class="pull-right-container">
+                <i class="fa fa-angle-left pull-right"></i>
+              </span>
+        </a>
+        <ul class="treeview-menu">
+            <li><a href="">栏目管理</a></li>
+            <li><a href="">标签管理</a></li>
+            <li><a href="">个人信息管理</a></li>
+        </ul>
+    </li>
+    <li class="treeview">
+        <a href="#"><i class="fa fa-link"></i> <span>博客文章管理</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -26,6 +38,5 @@
             <li><a href="#">信息管理</a></li>
         </ul>
     </li>
-    <li><a href="#"><i class="fa fa-link"></i> <span>销售统计</span></a></li>
     <li><a href="$!basePath/toManager.do"><i class="fa fa-link"></i> <span>用户管理</span></a></li>
 </ul>
