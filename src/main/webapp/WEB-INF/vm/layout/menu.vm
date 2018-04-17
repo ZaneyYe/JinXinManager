@@ -5,7 +5,7 @@
 ##        <a href="$!basePath/content_manage.do"><i class="fa fa-link"></i> <span>网站内容管理</span></a>
 ##    </li>
     <li class="treeview">
-        <a href="#"><i class="fa fa-link"></i> <span>内容管理</span>
+        <a href="#"><i class="fa fa-link"></i> <span>个人管理</span>
             <span class="pull-right-container">
                 <i class="fa fa-angle-left pull-right"></i>
               </span>
@@ -14,6 +14,7 @@
             <li><a href="">栏目管理</a></li>
             <li><a href="">标签管理</a></li>
             <li><a href="">个人信息管理</a></li>
+            <li><a href="$!basePath/bbs_list.do">留言管理</a></li>
         </ul>
     </li>
     <li class="treeview">

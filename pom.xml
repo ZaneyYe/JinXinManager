@@ -40,7 +40,7 @@
             <id>company</id>
             <properties>
                 <env>company</env>
-                <jdbc.url>jdbc:mysql://192.168.43.3:3306/jinxin</jdbc.url>
+                <jdbc.url>jdbc:mysql://192.168.137.3:3306/jinxin</jdbc.url>
             </properties>
         </profile>
     </profiles>

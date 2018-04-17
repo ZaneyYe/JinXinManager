@@ -8,6 +8,8 @@ import redis.clients.jedis.Jedis;
 
 import java.io.IOException;
 import java.io.Serializable;
+import java.util.Collections;
+import java.util.List;
 
 /**
  * Created by yezhangyuan on 2017-12-11.
@@ -79,6 +81,9 @@ public class JedisTest {
 //
 //		BlogArticle blogArticle = objectMapper.readValue(jsonStr2, BlogArticle.class);
 //		System.out.println(blogArticle);
+		List<String> strList = Collections.singletonList("a");
+		System.out.println(strList.size());
+
 	}
 
 }

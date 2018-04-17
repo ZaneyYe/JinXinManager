@@ -315,6 +315,16 @@
                             jdbcType="INTEGER"/>
         </table>
 
+        <table tableName="t_board_msg" domainObjectName="BbsMsg">
+            <property name="constructorBased" value="false"/>
+            <property name="ignoreQualifiersAtRuntime" value="false"/>
+            <property name="immutable" value="false"/>
+            <property name="modelOnly" value="false"/>
+            <generatedKey column="id" sqlStatement="Mysql" identity="true"/>
+            <columnOverride column="name" property="name" javaType="java.lang.String"
+                            jdbcType="VARCHAR"></columnOverride>
+        </table>
+
     </context>
 
 </generatorConfiguration>

@@ -81,5 +81,14 @@ public class BaseController {
 		return "system/unauthorized";
 	}
 
+	/**
+	 * 留言管理
+	 *
+	 * @return
+	 */
+	@RequestMapping("bbs_list.do")
+	public String toBbsList() {
+		return "system/bbs_list";
+	}
 
 }
