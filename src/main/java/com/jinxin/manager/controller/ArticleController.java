@@ -57,11 +57,10 @@ public class ArticleController {
 
 	@RequestMapping(value = "delArticle.do", method = RequestMethod.POST)
 	@ResponseBody
-	public ResponseEntity<StateInfo> deleteArticle(HttpServletRequest request, Integer articleId) {
+	public ResponseEntity<Void> deleteArticle(HttpServletRequest request, Integer articleId) {
 		LOGGER.info("begin delArticle:....{}", articleId);
 		ResponseEntity entity = new ResponseEntity();
 		articleService.delArticle(articleId);
-		entity.setResult(StateInfo.SUCCESS);
 		return entity;
 	}
 

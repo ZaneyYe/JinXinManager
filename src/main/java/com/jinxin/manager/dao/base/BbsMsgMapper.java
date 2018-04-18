@@ -2,10 +2,9 @@ package com.jinxin.manager.dao.base;
 
 import com.jinxin.manager.po.BbsMsg;
 import com.jinxin.manager.po.BbsMsgExample;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
-
-import org.apache.ibatis.annotations.Param;
 
 public interface BbsMsgMapper {
 	/**

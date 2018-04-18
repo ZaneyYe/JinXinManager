@@ -77,7 +77,7 @@
                             align: 'center',
                             formatter: function (value, row, index) {
                                 var d1 = "<button class='txtcenter' id='prevBtn'><a href='/article/queryArticle?articleId=" + row.id + "' target = '_blank'>打开预览<a></button>"
-                                var d2 = "<button class='txtcenter' id='delBtn' onclick='toDelArticle(" + row.id + ")'>删除</button>";
+                                var d2 = "<button class='txtcenter' id='delBtn' onclick='toDelBbsContent(" + row.id + ")'>删除</button>";
                                 return d1 + "&nbsp;&nbsp;" + d2;
                             }
                         }
@@ -94,18 +94,18 @@
     });
 
     //删除文章
-    function toDelArticle(articleId) {
-        var id = articleId;
-        $.messager.confirm("确认", "您确认删除这篇文章吗", function (rs) {
+    function toDelBbsContent(bbsId) {
+        var id = bbsId;
+        $.messager.confirm("确认", "您确认删除这篇评论吗", function (rs) {
             if (rs) {
                 $.ajax({
-                    url: "$!basePath/article/delArticle.do",
+                    url: "$!basePath/bbs/delBbsContent.do",
                     type: "POST",
-                    data: {"articleId": articleId},
+                    data: {"bbsId": bbsId},
                     dataType: "JSON",
                     success: function (data) {
                         if (data.code == 1) {
-                            $("#articleTt").datagrid("reload");
+                            $("#bbsTt").datagrid("reload");
                         } else {
                             $.messager.alert("警告", "删除失败");
                         }

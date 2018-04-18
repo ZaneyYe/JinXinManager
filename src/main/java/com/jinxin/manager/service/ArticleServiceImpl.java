@@ -21,6 +21,7 @@ import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
 
 import java.io.IOException;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -65,10 +66,11 @@ public class ArticleServiceImpl implements ArticleService {
 		PageInfo<List<BlogArticleVo>> pageInfo = new PageInfo<>();
 		int total = articleDao.queryTotalArticle();
 		List<BlogArticle> blogArticles = articleDao.queryPageArticles(page.getStart(), page.getRows());
+		List<BlogArticleVo> blogArticleVos = new ArrayList<>(); //防止easyui报错,rows不能为null
 		if (CollectionUtils.isNotEmpty(blogArticles)) {
-			List<BlogArticleVo> blogArticleVos = ConvertUtils.copyPropertiesList(BlogArticleVo.class, blogArticles);
-			pageInfo.setRows(blogArticleVos);
+			blogArticleVos = ConvertUtils.copyPropertiesList(BlogArticleVo.class, blogArticles);
 		}
+		pageInfo.setRows(blogArticleVos);
 		pageInfo.setTotal(total);
 		return pageInfo;
 	}

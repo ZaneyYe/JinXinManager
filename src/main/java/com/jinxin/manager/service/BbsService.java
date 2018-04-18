@@ -21,4 +21,10 @@ public interface BbsService {
 	 */
 	PageInfo<List<BbsMsgVo>> listBbsContent(RequestPage page);
 
+	/**
+	 * 刪除評論
+	 *
+	 * @param bbsId
+	 */
+	void delBbsContent(String bbsId);
 }
